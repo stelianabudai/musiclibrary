@@ -6,6 +6,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducers from './reducers';
 import { StaticRouter } from 'react-router';
+import data from '../data/data.json'
 
 import Html from './components/Html';
 import App from './components/App';
@@ -15,10 +16,9 @@ const app = express();
 app.use(express.static(path.join(__dirname)));
 
 app.get('*', async (req, res) => {
-  console.log('lslslslsls')
   const scripts = ['vendor.js', 'client.js'];
 
-  const initialState = { initialText: 'rendered on the server' };
+  const initialState = { initialText: 'rendered on the server', data };
 
   const store = createStore(reducers, initialState);
 
