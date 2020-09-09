@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Card from './Card'
 
 const Home = ({ initialText, changeText, data }) => {
-  console.log('datadata', data)
 return (
   <div>
     <p>{initialText}</p>
+    <Card apps={data} totalapps={data.length} />
     <button onClick={changeText}>change text!</button>
   </div>
 )};
