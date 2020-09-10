@@ -18,17 +18,18 @@ app.use(express.static(path.join(__dirname)));
 app.get('*', async (req, res) => {
   const scripts = ['vendor.js', 'client.js'];
 
+
   const initialState = { initialText: 'rendered on the server', data };
 
   const store = createStore(reducers, initialState);
-
   const appMarkup = ReactDOMServer.renderToString(
     <StaticRouter location={req.url} context={{}}>
       <Provider store={store}>
-        <App />
+       <App />
       </Provider>
     </StaticRouter>
   );
+
   const html = ReactDOMServer.renderToStaticMarkup(
     <Html
       children={appMarkup}
@@ -40,4 +41,4 @@ app.get('*', async (req, res) => {
   res.send(`<!doctype html>${html}`);
 });
 
-app.listen(3001, () => console.log('Listening on localhost:3001'));
+app.listen(3003, () => console.log('Listening on localhost:3001'));

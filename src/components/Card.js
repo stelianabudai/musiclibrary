@@ -1,17 +1,76 @@
 import React from 'react';
-import CardLeft from './CardLeft';
-import CardRight from './CardRight';
+import styled from 'styled-components';
 
-const Card = ({ apps, totalapps }) => {
-  const cards = apps.map((app, index) => (
-    <div className="app-card" key={app.name}>
-      <CardLeft img={app.img} appno={index + 1} totalapps={totalapps}  app={app}/>
-      <CardRight app={app}/>
-    </div>
-  ))
 
-  return cards
-}
+const Edge = styled.div`
+    width: 400px;
+    height: 500px;
+    border: 3px solid gray;
+    display: grid;
+    grid-template-rows: 6fr 1fr 3fr 2fr 3%;
+    font-family: helvetica;
+    margin-top: 2%;
+    margin: .75rem 0.25rem;
+`;
 
+const ImageContainer = styled.img`
+    max-width: 100%;
+    background: red;
+    grid-row-start: 1;
+    grid-row-end: 2;
+`;
+
+const Heading = styled.h2`
+    margin: 0;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    grid-row-start: 2;
+    grid-row-end: 3;
+`;
+
+const ParagraphDiv = styled.div`
+    grid-row-start: 3;
+    grid-row-end: 4;
+`;
+
+const Description = styled.p`
+    margin: 0;
+    padding: .5rem 1rem;
+    display: flex;
+    justify-content: center;
+    font-size: .95rem;
+`;
+
+const ButtonDiv = styled.div`
+    display: flex;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    justify-content: center;
+`;
+
+const Button = styled.button`
+    border: 1px solid black;
+    width: 7rem;
+    padding: .5rem 0;
+    margin: .5rem 1rem;
+`;
+
+const Card = ({app}) => (
+        <div>
+            <Edge>
+            <ImageContainer  src="https://res.cloudinary.com/dmkct6wfu/image/upload/v1561521301/coliseum-4290893_1920_eqfagn.jpg">
+            </ImageContainer>
+            <Heading>{app.name} </Heading>
+            <ParagraphDiv>
+                <Description>
+                    {app.desc}
+                </Description>
+            </ParagraphDiv>
+            <ButtonDiv>
+                <Button>View {app.songs.length} Songs</Button>
+            </ButtonDiv>
+            </Edge>
+        </div>
+    );
 
 export default Card;
