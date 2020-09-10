@@ -6,9 +6,11 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducers from './reducers';
 import { StaticRouter } from 'react-router';
-import data from '../data/data.json'
+
 const bodyParser = require('body-parser');
 var cors = require('cors')
+const Type = require('./Type')
+require('./db')
 
 
 
@@ -23,8 +25,7 @@ app.use(express.static(path.join(__dirname)));
 
 app.get('/', async (req, res) => {
   const scripts = ['vendor.js', 'client.js'];
-  console.log('onserver')
-
+  const data = await Type.find()
   const initialState = { initialText: 'rendered on the server', data };
 
   const store = createStore(reducers, initialState);
@@ -48,7 +49,8 @@ app.get('/', async (req, res) => {
 });
 
 app.post('/addType', async(req, resp) => {
-  console.log('req.body', req.body)
+
+  //await Type.insertMany(data)
  resp.send('dsdsds')
 })
 

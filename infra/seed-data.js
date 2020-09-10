@@ -1,5 +1,5 @@
 
-db.music.insertMany([
+db.Type.insertMany([
     {
       "name": "Jazz",
       "songs":[ "Jazz 1", "Jazz 2", "Jazz 3" ],

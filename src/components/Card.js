@@ -56,7 +56,7 @@ const Button = styled.button`
 `;
 
 const Card = ({app}) => {
-    console.log('inside card', app)
+  
 return (
         <div>
             <Edge>
@@ -69,7 +69,7 @@ return (
                 </Description>
             </ParagraphDiv>
             <ButtonDiv>
-                <Button>View {app.songs.length} Songs</Button>
+                <Button>View {app.songs ? app.songs.length : 0} Songs</Button>
             </ButtonDiv>
             </Edge>
         </div>
