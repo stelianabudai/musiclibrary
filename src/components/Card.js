@@ -55,7 +55,9 @@ const Button = styled.button`
     margin: .5rem 1rem;
 `;
 
-const Card = ({app}) => (
+const Card = ({app}) => {
+    console.log('inside card', app)
+return (
         <div>
             <Edge>
             <ImageContainer  src="https://res.cloudinary.com/dmkct6wfu/image/upload/v1561521301/coliseum-4290893_1920_eqfagn.jpg">
@@ -72,5 +74,5 @@ const Card = ({app}) => (
             </Edge>
         </div>
     );
-
+}
 export default Card;
