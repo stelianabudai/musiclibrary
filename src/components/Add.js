@@ -4,21 +4,24 @@ import { connect } from 'react-redux';
 
 const Add = ({addType, dispatch}) => {
   const input = useRef(null)
+  const description = useRef(null)
 
 return(
       <div>
       <form
         onSubmit={e => {
           e.preventDefault()
-          if (!input.current.value.trim()) {
+          if (!input.current.value.trim() || !description.current.value.trim()) {
             return
           }
-          addType(input.current.value, 'dddddddd')
+          addType(input.current.value, description.current.value)
           input.current.value = ''
+          description.current.value = ''
         }}
       >
-        <input ref={input} />
-        <button type="submit">Add Todo</button>
+        <input ref={input}/>
+        <input ref={description}/>
+        <button type="submit">Add Type</button>
       </form>
     </div>
 )};

@@ -5,7 +5,7 @@ function reducer(state, action) {
       case 'ADD_TYPE':
       console.log('statestate', state)
       console.log('statestateaction', action)
-      const newState = {...state, data:[...state.data, {name: action.name, description: action.description, songs: action.songs}]}
+      const newState = {...state, data:[...state.data, {name: action.name, desc: action.description, songs: action.songs}]}
       console.log('newState', newState)
       return  newState;
     default:
