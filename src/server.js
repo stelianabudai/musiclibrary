@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname)));
 app.get('/', async (req, res) => {
   const scripts = ['vendor.js', 'client.js'];
   console.log('onserver')
-  const data = loadTypes();
+  const data = await loadTypes();
 
   const initialState = { initialText: 'rendered on the server', data};
 

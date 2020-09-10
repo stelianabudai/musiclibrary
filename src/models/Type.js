@@ -1,6 +1,7 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
+
  
-var tupeSchema = mongoose.Schema({
+const typeSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     name: String,
     desc: String,
@@ -12,6 +13,6 @@ var tupeSchema = mongoose.Schema({
     ]
 });
  
-const Type = mongoose.model('Music', tupeSchema);
+const Type = mongoose.model('music', typeSchema);
  
-module.exports = Type;
+module.exports = {Type};
