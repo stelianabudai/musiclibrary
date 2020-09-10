@@ -1,13 +1,14 @@
 import React, { useRef } from 'react';
 import { connect } from 'react-redux';
+import {typesSave} from '../controllers/types'
 import { useHistory } from "react-router-dom";
-
 
 
 const Add = ({addType, dispatch}) => {
   const input = useRef(null)
   const description = useRef(null)
   const history = useHistory();
+
 
 
 return(
@@ -18,10 +19,8 @@ return(
           if (!input.current.value.trim() || !description.current.value.trim()) {
             return
           }
-          addType(input.current.value, description.current.value)
-          input.current.value = ''
-          description.current.value = ''
-          history.push('/home');
+          typesSave(input.current, description.current, addType, history)
+         
         }}
       >
         <input ref={input}/>
