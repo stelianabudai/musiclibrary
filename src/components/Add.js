@@ -1,10 +1,14 @@
 import React, { useRef } from 'react';
 import { connect } from 'react-redux';
+import { useHistory } from "react-router-dom";
+
 
 
 const Add = ({addType, dispatch}) => {
   const input = useRef(null)
   const description = useRef(null)
+  const history = useHistory();
+
 
 return(
       <div>
@@ -17,10 +21,12 @@ return(
           addType(input.current.value, description.current.value)
           input.current.value = ''
           description.current.value = ''
+          history.push('/home');
         }}
       >
         <input ref={input}/>
-        <input ref={description}/>
+        <br/><br/>
+        <textarea type="textarea" ref={description}/>
         <button type="submit">Add Type</button>
       </form>
     </div>
