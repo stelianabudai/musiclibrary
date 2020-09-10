@@ -6,7 +6,9 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducers from './reducers';
 import { StaticRouter } from 'react-router';
-import data from '../data/data.json'
+import data from '../data/data.json';
+import './serices/db-connect';
+import {loadTypes} from './serices/typeService';
 const bodyParser = require('body-parser');
 var cors = require('cors')
 
@@ -24,8 +26,9 @@ app.use(express.static(path.join(__dirname)));
 app.get('/', async (req, res) => {
   const scripts = ['vendor.js', 'client.js'];
   console.log('onserver')
+  const data = loadTypes();
 
-  const initialState = { initialText: 'rendered on the server', data };
+  const initialState = { initialText: 'rendered on the server', data};
 
   const store = createStore(reducers, initialState);
   const appMarkup = ReactDOMServer.renderToString(

@@ -56,7 +56,6 @@ const Button = styled.button`
 `;
 
 const Card = ({app}) => {
-    console.log('inside card', app)
 return (
         <div>
             <Edge>
