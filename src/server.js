@@ -27,6 +27,7 @@ app.get('/', async (req, res) => {
   const scripts = ['vendor.js', 'client.js'];
   console.log('onserver')
   const data = await loadTypes();
+  console.log('data', data)
 
   const initialState = { initialText: 'rendered on the server', data};
 

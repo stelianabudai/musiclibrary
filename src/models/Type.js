@@ -13,6 +13,6 @@ const typeSchema = mongoose.Schema({
     ]
 });
  
-const Type = mongoose.model('music', typeSchema);
+const Type = mongoose.model('type', typeSchema);
  
 module.exports = {Type};
