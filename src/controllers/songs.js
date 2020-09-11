@@ -12,7 +12,7 @@ const fetchSongs= (limit, skip, typeId, dispatch) => {
 }
 
 const songSave = (name, description, typeId, dispatch, history) => {
-    axios.post('/addSong', {name: name.value, description: description.value, typeId})
+    axios.post('/addSong', {name: name.value, desc: description.value, typeId})
         .then((res) => {
             dispatch(name.value, description.value)
             name.value = ''
