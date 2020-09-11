@@ -72,7 +72,7 @@ return (
                 </Description>
             </ParagraphDiv>
             <ButtonDiv>
-                <Button onClick={() => {history.push(`/songs/${app._id}`); addTypeId(app._id); resetPage()} }>View {app.songs ? app.songs.length : 0} Songs</Button>
+                <Button onClick={() => { addTypeId(app._id); resetPage(); history.push('/songs');} }>View {app.songs ? app.songs.length : 0} Songs</Button>
             </ButtonDiv>
             </Edge>
         </div>

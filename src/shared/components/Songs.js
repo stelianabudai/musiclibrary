@@ -1,14 +1,12 @@
 import React, { useEffect } from 'react'
 import {fetchSongs} from '../../controllers/songs'
 import { connect } from 'react-redux';
-
-import {
-    useParams
-  } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 
 
-const Songs = ({limit=1, skip=0, songs, saveSongs, changeSkip}) => {
-    const { typeId } = useParams();
+const Songs = ({limit=1, skip=0, typeId, songs, saveSongs, changeSkip}) => {
+    const history = useHistory();
+
     const nextPage = () => {
         changeSkip(skip + limit)
     }
@@ -43,6 +41,9 @@ const Songs = ({limit=1, skip=0, songs, saveSongs, changeSkip}) => {
             <button onClick={nextPage}> Previous Page </button>
             <button onClick={previousPage}> Next Page </button> 
             <button onClick={lastPage}> Last Page </button> 
+        </div>
+        <div>
+        <button onClick={()=> history.push('/addSong')}> Add Song </button>
         </div>
     </div>)
 }

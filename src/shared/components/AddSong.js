@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
 import { connect } from 'react-redux';
-import {typesSave} from '../../controllers/types'
+import {songSave} from '../../controllers/songs'
 import { useHistory } from "react-router-dom";
 
 
-const Add = ({addType, dispatch}) => {
+const AddSong = ({addSong, typeId, dispatch}) => {
   const input = useRef(null)
   const description = useRef(null)
   const history = useHistory();
@@ -17,26 +17,27 @@ return(
           if (!input.current.value.trim() || !description.current.value.trim()) {
             return
           }
-          typesSave(input.current, description.current, addType, history)
-         
+          songSave(input.current, description.current, typeId, addSong, history)     
         }}
       >
         <input ref={input}/>
         <br/><br/>
         <textarea type="textarea" ref={description}/>
-        <button type="submit">Add Type</button>
+        <button type="submit">Add Song</button>
       </form>
     </div>
 )};
 
-const mapStateToProps = ({ initialText, data }) => ({
+const mapStateToProps = ({ initialText, data, songs, typeId }) => ({
   initialText,
-  data
+  data, 
+  songs,
+  typeId
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addType: (name, description) => dispatch({ type: 'ADD_TYPE', name, description}),
+  addSong: (name, description, typeId) => dispatch({ type: 'ADD_SONG', name, description, typeId }),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Add);
+export default connect(mapStateToProps, mapDispatchToProps)(AddSong);
 

@@ -3,6 +3,7 @@ import { Route, Link, Switch } from 'react-router-dom'
 import Home from './Home'
 import Add from './Add'
 import Songs from './Songs'
+import AddSong from './AddSong'
 
 
 const App = () => (
@@ -16,7 +17,8 @@ const App = () => (
 
     <Switch>
       <Route path="/add" component={Add} />
-      <Route path="/songs/:typeId" component={Songs} />
+      <Route path="/songs" component={Songs} />
+      <Route path="/addSong" component={AddSong} />
       <Route path="/" component={Home} />
     </Switch>
   </div>

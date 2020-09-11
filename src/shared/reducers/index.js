@@ -5,25 +5,17 @@ function reducer(state, action) {
     case 'ADD_TYPE':
         return {...state, data:[...state.data, {name: action.name, desc: action.description}]}
     case 'FETCH_SONGS':
-        const newState1 = {...state, songs: action.songs}
-        console.log('FETCH_SONGS', newState1)
-        return  newState1
+        return {...state, songs: action.songs}
     case 'CHANGE_LIMIT':
-        const newState2 = {...state,limit: action.limit}
-        console.log('CHANGE_LIMIT', newState2)
-        return newState2
+        return {...state,limit: action.limit}
     case 'RESET_SKIP':
-        const newState3 = {...state, skip: 0}
-        console.log('RESET_SKIP', newState3)
-        return newState3
+        return {...state, skip: 0}
     case 'CHANGE_SKIP':
-        const newState4 = {...state, skip: action.skip}
-        console.log('CHANGE_SKIP', newState4)
-        return newState4
+        return {...state, skip: action.skip}
     case 'CHANGE_TYPE_ID':
-        const newState5 = {...state, typeId: action.typeId}
-        console.log('CHANGE_TYPE_ID', newState5)
-        return newState5
+        return  {...state, typeId: action.typeId}
+    case 'ADD_SONG':
+         return {...state, songs: [...state.songs, action]}
     default:
       return { ...state };
   }

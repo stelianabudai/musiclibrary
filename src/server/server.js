@@ -51,6 +51,11 @@ app.post('/addTypes', async(req, resp) => {
   resp.sendStatus(200)
 })
 
+app.post('/addSong', async(req, resp) => {
+  await Song.create({...req.body})
+  resp.sendStatus(200)
+})
+
 app.get('/songs', async(req, resp) =>{
   const typeId = req.query.typeId
   const limit = parseInt(req.query.limit)

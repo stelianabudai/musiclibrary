@@ -11,4 +11,17 @@ const fetchSongs= (limit, skip, typeId, dispatch) => {
   
 }
 
-export {fetchSongs}
+const songSave = (name, description, typeId, dispatch, history) => {
+    axios.post('/addSong', {name: name.value, description: description.value, typeId})
+        .then((res) => {
+            dispatch(name.value, description.value)
+            name.value = ''
+            description.value = ''
+            history.push('/songs');
+        }).catch((error) => {
+            console.log(error)
+        });
+}
+
+
+export {fetchSongs, songSave}
