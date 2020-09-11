@@ -30,7 +30,7 @@ const clientConfig = {
   entry: {
     client: [
       '@babel/polyfill',
-      './src/client.js',
+      './src/client/client.js',
     ],
   },
   output: {
@@ -70,7 +70,7 @@ const serverConfig = {
   externals: [nodeExternals()],
 
   entry: {
-    server: ['@babel/polyfill', path.resolve(__dirname, 'src', 'server.js')],
+    server: ['@babel/polyfill', path.resolve(__dirname, 'src/server', 'server.js')],
   },
   output: {
     path: path.resolve(__dirname, 'build'),
