@@ -1,13 +1,16 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import {typesSave} from '../../controllers/typesController'
 import { useHistory } from "react-router-dom";
 import { Button } from 'styled-button-component'
-
+import {
+  FormControl,
+  FormGroup,
+} from 'styled-form-component';
 
 const Add = ({addType, dispatch}) => {
-  const input = useRef(null)
-  const description = useRef(null)
+  const [name, setName] = useState("")
+  const [desc, setDesc] = useState("")
   const history = useHistory();
 
 return(
@@ -15,16 +18,23 @@ return(
       <form
         onSubmit={e => {
           e.preventDefault()
-          if (!input.current.value.trim() || !description.current.value.trim()) {
+          if (!name.trim() || !desc.trim()) {
             return
           }
-          typesSave(input.current, description.current, addType, history)
-         
+          typesSave(name, desc, addType, history)  
         }}
       >
-        <input ref={input}/>
-        <br/><br/>
-        <textarea type="textarea" ref={description}/>
+      <FormGroup>
+        <label>
+          Add title<FormControl value={name} placeholder="title" onChange={(e)=>setName(e.target.value)}/>
+        </label>
+      </FormGroup>
+      <FormGroup>
+        <label>
+          Add description
+          <FormControl textarea rows="3" value={desc} type="textarea" onChange={(e)=>setDesc(e.target.value)}/>
+        </label>
+    </FormGroup>
         <Button type="submit">Add Type</Button>
       </form>
     </div>

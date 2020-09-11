@@ -1,11 +1,9 @@
 import axios from 'axios';
 
-const typesSave = (name, description, dispatch, history) => {
-    axios.post('/addTypes', {name: name.value, desc: description.value})
+const typesSave = (name, desc, dispatch, history) => {
+    axios.post('/addTypes', {name, desc})
         .then((res) => {
-            dispatch(name.value, description.value)
-            name.value = ''
-            description.value = ''
+            dispatch(name, desc)
             history.push('/home');
         }).catch((error) => {
             console.log(error)

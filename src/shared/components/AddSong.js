@@ -26,15 +26,15 @@ return(
         }}
       >
         <FormGroup>
-        <label>
-          Add title<FormControl value={name} placeholder="title" onChange={(e)=>setName(e.target.value)}/>
-        </label>
+          <label>
+            Add title<FormControl value={name} placeholder="title" onChange={(e)=>setName(e.target.value)}/>
+          </label>
         </FormGroup>
         <FormGroup>
-        <label>
-          Add description
-          <FormControl textarea rows="3" value={desc} type="textarea" onChange={(e)=>setDesc(e.target.value)}/>
-        </label>
+          <label>
+            Add description
+            <FormControl textarea rows="3" value={desc} type="textarea" onChange={(e)=>setDesc(e.target.value)}/>
+          </label>
       </FormGroup>
         <Button type="submit">Add Song</Button>
       </form>
