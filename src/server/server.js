@@ -46,9 +46,7 @@ app.get('/', async (req, res) => {
 });
 
 app.post('/addType', async(req, resp) => {
-
-  //await Type.insertMany(data)
- resp.send('dsdsds')
+ await Type.create({...req.body})
 })
 
 app.listen(3003, () => console.log('Listening on localhost:3001'))
