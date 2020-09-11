@@ -1,7 +1,8 @@
-import React from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
-import Home from './Home';
-import Add from './Add';
+import React from 'react'
+import { Route, Link, Switch } from 'react-router-dom'
+import Home from './Home'
+import Add from './Add'
+import Songs from './Songs'
 
 
 const App = () => (
@@ -15,6 +16,7 @@ const App = () => (
 
     <Switch>
       <Route path="/add" component={Add} />
+      <Route path="/songs/:typeId" component={Songs} />
       <Route path="/" component={Home} />
     </Switch>
   </div>

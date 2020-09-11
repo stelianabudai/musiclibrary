@@ -13,10 +13,11 @@ require('./db')
 
 import Html from '../shared/components/Html'
 import App from '../shared/components/App'
+import Song from './models/Song';
 
 const app = express()
-app.use(bodyParser.json())
 app.use(cors())
+app.use(bodyParser.json())
 
 app.use(express.static(path.join(__dirname)))
 
@@ -45,8 +46,24 @@ app.get('/', async (req, res) => {
   res.send(`<!doctype html>${html}`)
 });
 
-app.post('/addType', async(req, resp) => {
- await Type.create({...req.body})
+app.post('/addTypes', async(req, resp) => {
+  await Type.create({...req.body})
+  resp.sendStatus(200)
 })
 
-app.listen(3003, () => console.log('Listening on localhost:3001'))
+app.get('/songs', async(req, resp) =>{
+  const typeId = req.query.typeId
+  const limit = parseInt(req.query.limit)
+  const skip = parseInt(req.query.skip)
+  try{
+    const songs =  await Song.find({typeId : typeId}).skip(skip).limit(limit) 
+    return resp.json(songs)
+  }
+  catch(err){
+    //todo use datadog and log err in there
+    console.log('error', err)
+    resp.statusCode(500)
+  }
+})
+
+app.listen(3001, () => console.log('Listening on localhost:3001'))

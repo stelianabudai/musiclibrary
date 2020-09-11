@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 const Edge = styled.div`
     width: 400px;
@@ -55,7 +56,9 @@ const Button = styled.button`
     margin: .5rem 1rem;
 `;
 
-const Card = ({app}) => {
+const Card = ({app, addTypeId, resetPage}) => {
+const history = useHistory();
+
   
 return (
         <div>
@@ -69,10 +72,23 @@ return (
                 </Description>
             </ParagraphDiv>
             <ButtonDiv>
-                <Button>View {app.songs ? app.songs.length : 0} Songs</Button>
+                <Button onClick={() => {history.push(`/songs/${app._id}`); addTypeId(app._id); resetPage()} }>View {app.songs ? app.songs.length : 0} Songs</Button>
             </ButtonDiv>
             </Edge>
         </div>
     );
 }
-export default Card;
+
+const mapStateToProps = ({ initialText, data }) => ({
+    initialText,
+    data
+  });
+  
+  const mapDispatchToProps = (dispatch) => ({
+    addTypeId: (typeId) => dispatch({ type: 'CHANGE_TYPE_ID', typeId }),
+    resetPage: () => dispatch({ type: 'RESET_SKIP'}),
+  });
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(Card);
+  
+  
