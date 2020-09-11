@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react'
 import {fetchSongs} from '../../controllers/songsController'
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { Table, Tr } from 'styled-table-component';
+import { useHistory } from 'react-router-dom'
+import { Table, Tr } from 'styled-table-component'
+import { Button, ButtonGroup, ButtonToolbar } from 'styled-button-component'
+
 
 const Songs = ({limit=5, skip=0, typeId, songs=[], saveSongs, changeSkip}) => {
     const history = useHistory();
@@ -31,21 +33,22 @@ const Songs = ({limit=5, skip=0, typeId, songs=[], saveSongs, changeSkip}) => {
     )
 
     return (<div> 
+        <ButtonGroup>
+            <Button onClick={nextPage}> Previous Page </Button>
+            <Button onClick={previousPage}> Next Page </Button> 
+            <Button onClick={lastPage}> Last Page </Button> 
+        </ButtonGroup>
         <Table>
-         <tbody>
-          
-         {rows}
+         <tbody>      
+          {rows}
          </tbody>
         </Table>
-        <div> 
-            <button onClick={nextPage}> Previous Page </button>
-            <button onClick={previousPage}> Next Page </button> 
-            <button onClick={lastPage}> Last Page </button> 
+       
+        <ButtonGroup>
+           <Button onClick={()=> history.push('/addSong')}> Add Song </Button>
+        </ButtonGroup>
         </div>
-        <div>
-        <button onClick={()=> history.push('/addSong')}> Add Song </button>
-        </div>
-    </div>)
+    )
 }
 
 
