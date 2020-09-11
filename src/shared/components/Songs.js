@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import {fetchSongs} from '../../controllers/songs'
+import {fetchSongs} from '../../controllers/songsController'
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
@@ -49,8 +49,7 @@ const Songs = ({limit=1, skip=0, typeId, songs, saveSongs, changeSkip}) => {
 }
 
 
-const mapStateToProps = ({ initialText, data, limit, skip, typeId, songs}) => ({
-    initialText,
+const mapStateToProps = ({ data, limit, skip, typeId, songs}) => ({
     data,
     limit,
     skip,

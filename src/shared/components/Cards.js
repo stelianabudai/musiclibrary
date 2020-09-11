@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-import Card from "./Card";
+import Card from './Card'
 
 
 const Cards = ({ apps, totalapps }) => {
@@ -9,9 +9,7 @@ const Cards = ({ apps, totalapps }) => {
       <Card app={app} ></Card>
     </div>
   ))
-
   return cards
 }
-
 
 export default Cards;

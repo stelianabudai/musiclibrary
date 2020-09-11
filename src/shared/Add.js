@@ -27,8 +27,7 @@ return(
     </div>
 )};
 
-const mapStateToProps = ({ initialText, data }) => ({
-  initialText,
+const mapStateToProps = ({ data }) => ({
   data
 });
 

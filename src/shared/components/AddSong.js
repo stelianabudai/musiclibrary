@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { connect } from 'react-redux';
-import {songSave} from '../../controllers/songs'
+import {songSave} from '../../controllers/songsController'
 import { useHistory } from "react-router-dom";
 
 
@@ -28,8 +28,7 @@ return(
     </div>
 )};
 
-const mapStateToProps = ({ initialText, data, songs, typeId }) => ({
-  initialText,
+const mapStateToProps = ({ data, songs, typeId }) => ({
   data, 
   songs,
   typeId

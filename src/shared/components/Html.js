@@ -4,7 +4,6 @@ const Html = ({ children, initialState, scripts }) => (
   <html>
     <head>
       <meta charSet="UTF-8" />
-      <title>Server Side Rendered React App!!</title>
     </head>
     <body>
       <div

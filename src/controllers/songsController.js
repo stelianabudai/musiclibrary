@@ -7,8 +7,7 @@ const fetchSongs= (limit, skip, typeId, dispatch) => {
     })
     .catch((error) => {
         console.log(error)
-    });  
-  
+    });    
 }
 
 const songSave = (name, description, typeId, dispatch, history) => {

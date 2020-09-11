@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { connect } from 'react-redux';
-import {typesSave} from '../../controllers/types'
+import {typesSave} from '../../controllers/typesController'
 import { useHistory } from "react-router-dom";
 
 
@@ -29,8 +29,7 @@ return(
     </div>
 )};
 
-const mapStateToProps = ({ initialText, data }) => ({
-  initialText,
+const mapStateToProps = ({ data }) => ({
   data
 });
 

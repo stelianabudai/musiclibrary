@@ -1,7 +1,5 @@
 function reducer(state, action) {
   switch (action.type) {
-    case 'CHANGE_TEXT':
-        return { ...state, initialText: 'changed in the browser!' };
     case 'ADD_TYPE':
         return {...state, data:[...state.data, {name: action.name, desc: action.description}]}
     case 'FETCH_SONGS':

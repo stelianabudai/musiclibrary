@@ -9,8 +9,7 @@ import { StaticRouter } from 'react-router'
 import bodyParser from  'body-parser'
 import cors from 'cors'
 import  Type from './models/Type'
-require('./db')
-
+import'./db-connect'
 import Html from '../shared/components/Html'
 import App from '../shared/components/App'
 import Song from './models/Song';
@@ -24,7 +23,7 @@ app.use(express.static(path.join(__dirname)))
 app.get('/', async (req, res) => {
   const scripts = ['vendor.js', 'client.js']
   const data = await Type.find()
-  const initialState = { initialText: 'rendered on the server', data }
+  const initialState = { data }
 
   const store = createStore(reducers, initialState)
   const appMarkup = ReactDOMServer.renderToString(

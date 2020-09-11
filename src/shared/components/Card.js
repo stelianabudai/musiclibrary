@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React from 'react'
+import styled from 'styled-components'
+import { useHistory } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 const Edge = styled.div`
     width: 400px;
@@ -12,14 +12,14 @@ const Edge = styled.div`
     font-family: helvetica;
     margin-top: 2%;
     margin: .75rem 0.25rem;
-`;
+`
 
 const ImageContainer = styled.img`
     max-width: 100%;
     background: red;
     grid-row-start: 1;
     grid-row-end: 2;
-`;
+`
 
 const Heading = styled.h2`
     margin: 0;
@@ -27,12 +27,12 @@ const Heading = styled.h2`
     padding-left: 1rem;
     grid-row-start: 2;
     grid-row-end: 3;
-`;
+`
 
 const ParagraphDiv = styled.div`
     grid-row-start: 3;
     grid-row-end: 4;
-`;
+`
 
 const Description = styled.p`
     margin: 0;
@@ -40,21 +40,21 @@ const Description = styled.p`
     display: flex;
     justify-content: center;
     font-size: .95rem;
-`;
+`
 
 const ButtonDiv = styled.div`
     display: flex;
     grid-row-start: 4;
     grid-row-end: 5;
     justify-content: center;
-`;
+`
 
 const Button = styled.button`
     border: 1px solid black;
     width: 7rem;
     padding: .5rem 0;
     margin: .5rem 1rem;
-`;
+`
 
 const Card = ({app, addTypeId, resetPage}) => {
 const history = useHistory();
@@ -76,19 +76,18 @@ return (
             </ButtonDiv>
             </Edge>
         </div>
-    );
+    )
 }
 
-const mapStateToProps = ({ initialText, data }) => ({
-    initialText,
+const mapStateToProps = ({ data }) => ({
     data
-  });
+  })
   
   const mapDispatchToProps = (dispatch) => ({
     addTypeId: (typeId) => dispatch({ type: 'CHANGE_TYPE_ID', typeId }),
     resetPage: () => dispatch({ type: 'RESET_SKIP'}),
-  });
+  })
   
-  export default connect(mapStateToProps, mapDispatchToProps)(Card);
+  export default connect(mapStateToProps, mapDispatchToProps)(Card)
   
   
