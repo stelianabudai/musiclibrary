@@ -3,7 +3,6 @@ db.Type.insertMany([
     {  
       "_id": "5f5a8b23c67a3f0ee1e6a7aa",
       "name": "Jazz",
-      "songs":[ "Jazz 1", "Jazz 2", "Jazz 3" ],
       "publisher": "Netflix, Inc",
       "price": "Free",
       "img": {
