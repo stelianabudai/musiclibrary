@@ -11,9 +11,7 @@ const fetchSongs= (limit, skip, typeId, dispatch) => {
 }
 
 const songSave = (name, desc, typeId, dispatch, history) => {
-    console.log('namesongSave', name)
-    console.log('namesongdesc', desc)
-
+    
     axios.post('/addSong', {name, desc, typeId})
         .then((res) => {
             dispatch(name, desc)
