@@ -2,9 +2,9 @@ import React, { useEffect } from 'react'
 import {fetchSongs} from '../../controllers/songsController'
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { Table, Tr } from 'styled-table-component';
 
-
-const Songs = ({limit=1, skip=0, typeId, songs, saveSongs, changeSkip}) => {
+const Songs = ({limit=5, skip=0, typeId, songs=[], saveSongs, changeSkip}) => {
     const history = useHistory();
 
     const nextPage = () => {
@@ -26,17 +26,17 @@ const Songs = ({limit=1, skip=0, typeId, songs, saveSongs, changeSkip}) => {
         fetchSongs(limit, skip, typeId, saveSongs)
     }, [skip, limit, typeId, saveSongs])
 
+    const rows= songs.map(songs => 
+        <Tr light><td>{ songs.name } </td><td>{ songs.desc } </td></Tr>
+    )
+
     return (<div> 
-        <ul> 
-            { 
-               songs? songs.map(songs => 
-                    <li> 
-                        <span> { songs.name } </span>
-                        <span> { songs.desc } </span>
-                    </li>
-                ):<></>
-            }
-        </ul>
+        <Table>
+         <tbody>
+          
+         {rows}
+         </tbody>
+        </Table>
         <div> 
             <button onClick={nextPage}> Previous Page </button>
             <button onClick={previousPage}> Next Page </button> 
