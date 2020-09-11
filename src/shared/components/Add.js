@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { connect } from 'react-redux';
 import {typesSave} from '../../controllers/typesController'
 import { useHistory } from "react-router-dom";
+import { Button } from 'styled-button-component'
 
 
 const Add = ({addType, dispatch}) => {
@@ -24,7 +25,7 @@ return(
         <input ref={input}/>
         <br/><br/>
         <textarea type="textarea" ref={description}/>
-        <button type="submit">Add Type</button>
+        <Button type="submit">Add Type</Button>
       </form>
     </div>
 )};

@@ -3,7 +3,7 @@ import {fetchSongs} from '../../controllers/songsController'
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom'
 import { Table, Tr } from 'styled-table-component'
-import { Button, ButtonGroup, ButtonToolbar } from 'styled-button-component'
+import { Button, ButtonGroup } from 'styled-button-component'
 
 
 const Songs = ({limit=5, skip=0, typeId, songs=[], saveSongs, changeSkip}) => {

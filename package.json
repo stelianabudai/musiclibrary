@@ -25,6 +25,7 @@
     "remove": "^0.1.5",
     "styled-button-component": "^4.0.0",
     "styled-card-component": "^4.0.0",
+    "styled-form-component": "^4.0.0",
     "styled-listgroup-component": "^4.0.0",
     "styled-table-component": "^4.0.0"
   },

@@ -10,12 +10,13 @@ const fetchSongs= (limit, skip, typeId, dispatch) => {
     });    
 }
 
-const songSave = (name, description, typeId, dispatch, history) => {
-    axios.post('/addSong', {name: name.value, desc: description.value, typeId})
+const songSave = (name, desc, typeId, dispatch, history) => {
+    console.log('namesongSave', name)
+    console.log('namesongdesc', desc)
+
+    axios.post('/addSong', {name, desc, typeId})
         .then((res) => {
-            dispatch(name.value, description.value)
-            name.value = ''
-            description.value = ''
+            dispatch(name, desc)
             history.push('/songs');
         }).catch((error) => {
             console.log(error)
