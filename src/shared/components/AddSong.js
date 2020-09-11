@@ -4,14 +4,8 @@ import {songSave} from '../../controllers/songsController'
 import { useHistory } from "react-router-dom";
 import { Button } from 'styled-button-component'
 import {
-  FormCheck,
-  FormCheckInput,
   FormControl,
-  FormControlFile,
-  FormControlPlainText,
   FormGroup,
-  FormInline,
-  FormText,
 } from 'styled-form-component';
 
 
