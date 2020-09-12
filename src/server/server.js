@@ -13,6 +13,8 @@ import'./db-connect'
 import Html from '../shared/components/Html'
 import App from '../shared/components/App'
 import Song from './models/Song';
+import {getSongsCountByGenre} from './services/songsService'
+
 
 const app = express()
 app.use(cors())
@@ -23,8 +25,8 @@ app.use(express.static(path.join(__dirname)))
 app.get('/', async (req, res) => {
   const scripts = ['vendor.js', 'client.js']
   const data = await Type.find()
-  const initialState = { data }
-
+  const songsCountByGenre = await getSongsCountByGenre()
+  const initialState = { data, songsCountByGenre }
   const store = createStore(reducers, initialState)
   const appMarkup = ReactDOMServer.renderToString(
     <StaticRouter location={req.url} context={{}}>

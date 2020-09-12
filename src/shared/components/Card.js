@@ -16,9 +16,8 @@ import {
   width: '18rem'
 `
 
-const Card = ({app, addTypeId, resetPage}) => {
+const Card = ({app, count, addTypeId, resetPage}) => {
 const history = useHistory();
- 
 return (
       
         <StyledCard>
@@ -28,7 +27,7 @@ return (
           <CardText>
            {app.desc}
           </CardText>
-                <Button onClick={() => { addTypeId(app._id); resetPage(); history.push('/songs');} }>View {app.songs ? app.songs.length : 0} Songs</Button>
+                <Button onClick={() => { addTypeId(app._id); resetPage(); history.push('/songs');} }>View {count} Songs</Button>
         </CardBody>
       </StyledCard>
     )

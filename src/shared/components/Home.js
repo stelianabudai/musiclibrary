@@ -2,13 +2,14 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Cards from './Cards'
 
-const Home = ({  data }) => {
+const Home = ({ data, songsCountByGenre }) => {
 return (
-    <Cards apps={data} totalapps={data.length} />
+    <Cards apps={data} songsCountByGenre={songsCountByGenre} />
 )}
 
-const mapStateToProps = ({ data }) => ({
-  data
+const mapStateToProps = ({ data, songsCountByGenre }) => ({
+    data,
+    songsCountByGenre
 })
 
 const mapDispatchToProps = (dispatch) => ({
