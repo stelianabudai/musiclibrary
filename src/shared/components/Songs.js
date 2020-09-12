@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom'
 import { Table, Tr } from 'styled-table-component'
 import { Button, ButtonGroup } from 'styled-button-component'
-
+import {FETCH_SONGS, CHANGE_SKIP} from '../reducers/actions'
 
 const Songs = ({limit=5, skip=0, typeId, songs=[], saveSongs, changeSkip}) => {
     const history = useHistory();
@@ -61,8 +61,8 @@ const mapStateToProps = ({ data, limit, skip, typeId, songs}) => ({
   });
   
   const mapDispatchToProps = (dispatch) => ({
-    saveSongs: (songs, limit) => dispatch({ type: 'FETCH_SONGS', songs, limit}),
-    changeSkip: (skip) => dispatch({ type: 'CHANGE_SKIP', skip })
+    saveSongs: (songs, limit) => dispatch({ type: FETCH_SONGS, songs, limit}),
+    changeSkip: (skip) => dispatch({ type: CHANGE_SKIP, skip })
   });
   
   export default connect(mapStateToProps, mapDispatchToProps)(Songs);

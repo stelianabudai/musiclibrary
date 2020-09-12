@@ -2,12 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { CHANGE_TYPE_ID, RESET_SKIP } from '../reducers/actions'
 import {
     Card as StyledCard,
     CardBody,
     CardText,
     CardTitle,
   } from 'styled-card-component';
+import { format } from 'url';
 
   const Button = styled.button`
   width: '18rem'
@@ -35,8 +37,8 @@ const mapStateToProps = ({ data, songsCountByGenre }) => ({
   })
   
   const mapDispatchToProps = (dispatch) => ({
-    addTypeId: (typeId) => dispatch({ type: 'CHANGE_TYPE_ID', typeId }),
-    resetPage: () => dispatch({ type: 'RESET_SKIP'}),
+    addTypeId: (typeId) => dispatch({ type: CHANGE_TYPE_ID, typeId }),
+    resetPage: () => dispatch({ type: RESET_SKIP}),
   })
   
   export default connect(mapStateToProps, mapDispatchToProps)(Card)

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {songSave} from '../../controllers/songsController'
 import { useHistory } from "react-router-dom";
 import { Button } from 'styled-button-component'
+import { ADD_SONG } from '../reducers/actions'
 import {
   FormControl,
   FormGroup,
@@ -48,7 +49,7 @@ const mapStateToProps = ({ data, songs, typeId }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addSong: (name, description, typeId) => dispatch({ type: 'ADD_SONG', name, description, typeId }),
+  addSong: (name, description, typeId) => dispatch({ type: ADD_SONG, name, description, typeId }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddSong);
