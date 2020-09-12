@@ -34,8 +34,8 @@ const Songs = ({limit=5, skip=0, typeId, songs=[], saveSongs, changeSkip}) => {
 
     return (<div> 
         <ButtonGroup>
-            <Button onClick={nextPage}> Previous Page </Button>
-            <Button onClick={previousPage}> Next Page </Button> 
+            <Button onClick={previousPage}> Previous Page </Button> 
+            <Button onClick={nextPage}> Next Page </Button>
             <Button onClick={lastPage}> Last Page </Button> 
         </ButtonGroup>
         <Table>
@@ -61,7 +61,7 @@ const mapStateToProps = ({ data, limit, skip, typeId, songs}) => ({
   });
   
   const mapDispatchToProps = (dispatch) => ({
-    saveSongs: (songs) => dispatch({ type: 'FETCH_SONGS', songs}),
+    saveSongs: (songs, limit) => dispatch({ type: 'FETCH_SONGS', songs, limit}),
     changeSkip: (skip) => dispatch({ type: 'CHANGE_SKIP', skip })
   });
   
