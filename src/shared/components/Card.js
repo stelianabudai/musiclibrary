@@ -5,9 +5,6 @@ import { connect } from 'react-redux'
 import {
     Card as StyledCard,
     CardBody,
-    CardFooter,
-    CardHeader,
-    CardImageHeader,
     CardText,
     CardTitle,
   } from 'styled-card-component';
@@ -16,25 +13,25 @@ import {
   width: '18rem'
 `
 
-const Card = ({app, count, addTypeId, resetPage}) => {
-const history = useHistory();
-return (
-      
-        <StyledCard>
-        <CardBody>
-        <CardTitle h3>{app.name}</CardTitle>
+const Card = ({app, songsCountByGenre, addTypeId, resetPage}) => {
+    const history = useHistory();
 
-          <CardText>
-           {app.desc}
-          </CardText>
-                <Button onClick={() => { addTypeId(app._id); resetPage(); history.push('/songs');} }>View {count} Songs</Button>
-        </CardBody>
-      </StyledCard>
-    )
+    const song = songsCountByGenre.find(s => s._id === app._id)
+
+    return (    
+            <StyledCard>
+            <CardBody>
+            <CardTitle h3>{app.name}</CardTitle>
+            <CardText>{app.desc}</CardText>
+                    <Button onClick={() => { addTypeId(app._id); resetPage(); history.push('/songs');} }>View {song? song.count:0} Songs</Button>
+            </CardBody>
+        </StyledCard>
+        )
 }
 
-const mapStateToProps = ({ data }) => ({
-    data
+const mapStateToProps = ({ data, songsCountByGenre }) => ({
+    data, 
+    songsCountByGenre
   })
   
   const mapDispatchToProps = (dispatch) => ({

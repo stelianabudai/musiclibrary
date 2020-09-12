@@ -1,15 +1,19 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Cards from './Cards'
+import Card from './Card'
 
-const Home = ({ data, songsCountByGenre }) => {
-return (
-    <Cards apps={data} songsCountByGenre={songsCountByGenre} />
-)}
+const Home = ({ data }) => {
+    const cards = data.map((app, index) => {
+      return(
+        <div className="app-card" key={app.name}>
+          <Card app={app} ></Card>
+        </div>
+      )})
+      return cards
+}
 
-const mapStateToProps = ({ data, songsCountByGenre }) => ({
+const mapStateToProps = ({ data }) => ({
     data,
-    songsCountByGenre
 })
 
 const mapDispatchToProps = (dispatch) => ({
