@@ -9,15 +9,13 @@ import {
     CardText,
     CardTitle,
   } from 'styled-card-component';
-import { format } from 'url';
 
-  const Button = styled.button`
+const Button = styled.button`
   width: '18rem'
 `
 
 const Card = ({app, songsCountByGenre, addTypeId, resetPage}) => {
     const history = useHistory();
-
     const song = songsCountByGenre.find(s => s._id === app._id)
 
     return (    
@@ -31,8 +29,8 @@ const Card = ({app, songsCountByGenre, addTypeId, resetPage}) => {
         )
 }
 
-const mapStateToProps = ({ data, songsCountByGenre }) => ({
-    data, 
+const mapStateToProps = ({ genres, songsCountByGenre }) => ({
+    genres, 
     songsCountByGenre
   })
   

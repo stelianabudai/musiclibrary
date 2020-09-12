@@ -1,5 +1,5 @@
 
-db.Type.insertMany([
+db.Genre.insertMany([
     {  
       "_id": "5f5a8b23c67a3f0ee1e6a7aa",
       "name": "Jazz",

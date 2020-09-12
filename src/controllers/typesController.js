@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const typesSave = (name, desc, dispatch, history) => {
-    axios.post('/addTypes', {name, desc})
+    axios.post('/genre', {name, desc})
         .then((res) => {
             dispatch(name, desc)
             history.push('/home');

@@ -52,8 +52,8 @@ const Songs = ({limit=5, skip=0, typeId, songs=[], saveSongs, changeSkip}) => {
 }
 
 
-const mapStateToProps = ({ data, limit, skip, typeId, songs}) => ({
-    data,
+const mapStateToProps = ({ genres, limit, skip, typeId, songs}) => ({
+    genres,
     limit,
     skip,
     typeId,

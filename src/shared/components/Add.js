@@ -40,8 +40,8 @@ return(
     </div>
 )};
 
-const mapStateToProps = ({ data }) => ({
-  data
+const mapStateToProps = ({ genres }) => ({
+  genres
 });
 
 const mapDispatchToProps = (dispatch) => ({

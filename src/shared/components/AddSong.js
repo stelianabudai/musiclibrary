@@ -42,8 +42,8 @@ return(
     </div>
 )};
 
-const mapStateToProps = ({ data, songs, typeId }) => ({
-  data, 
+const mapStateToProps = ({ genres, songs, typeId }) => ({
+  genres, 
   songs,
   typeId
 });

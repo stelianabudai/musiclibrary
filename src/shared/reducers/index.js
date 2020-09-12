@@ -9,7 +9,7 @@ const calculateSkip= (count, limit) => {
 const reducer = (state, action) => {
   switch (action.type) {
     case ADD_TYPE:
-        return {...state, data:[...state.data, {name: action.name, desc: action.description}]}
+        return {...state, genres:[...state.genres, {name: action.name, desc: action.description}]}
     case FETCH_SONGS:
         return {...state, songs: action.songs, limit:action.limit}
     case RESET_SKIP:
@@ -24,8 +24,8 @@ const reducer = (state, action) => {
        return {...state,
                 songs: [...state.songs, action],
                 songsCountByGenre: [...newSongsCountByGenre,
-                {_id:group._id, count: group.count+1}],
-                skip: calculateSkip(group.count+1, state.limit)
+                {_id:action.typeId, count: group? group.count+1 : 1}],
+                skip: calculateSkip(group?group.count+1:0, state.limit)
               }
     default:
       return { ...state }
