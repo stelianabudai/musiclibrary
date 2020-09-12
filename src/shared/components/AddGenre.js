@@ -8,7 +8,7 @@ import {
   FormGroup,
 } from 'styled-form-component';
 
-const Add = ({addType, dispatch}) => {
+const AddGenre = ({addType, dispatch}) => {
   const [name, setName] = useState("")
   const [desc, setDesc] = useState("")
   const history = useHistory();
@@ -48,5 +48,5 @@ const mapDispatchToProps = (dispatch) => ({
   addType: (name, description) => dispatch({ type: 'ADD_TYPE', name, description}),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Add);
+export default connect(mapStateToProps, mapDispatchToProps)(AddGenre);
 

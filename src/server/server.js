@@ -25,6 +25,7 @@ app.use('/songs', songRouter)
 app.use('/genre', genreRouter)
 
 app.get('/', async (req, res) => {
+  console.log('on server')
   const scripts = ['vendor.js', 'client.js']
   const genres = await getGenres()
   const songsCountByGenre = await getSongsCountByGenre()
@@ -48,5 +49,9 @@ app.get('/', async (req, res) => {
   res.send(`<!doctype html>${html}`)
 });
 
+app.use(function(req, res){
+  res.statusCode = 404
+  res.send("Page not found!!!!");
+});
 
 app.listen(3002, () => console.log('Listening on localhost:3002'))
