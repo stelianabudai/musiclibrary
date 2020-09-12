@@ -14,7 +14,7 @@ const songSave = (name, desc, typeId, dispatch, history) => {
     
     axios.post('/addSong', {name, desc, typeId})
         .then((res) => {
-            dispatch(name, desc)
+            dispatch(name, desc, typeId)
             history.push('/songs');
         }).catch((error) => {
             console.log(error)

@@ -13,7 +13,9 @@ function reducer(state, action) {
     case 'CHANGE_TYPE_ID':
         return  {...state, typeId: action.typeId}
     case 'ADD_SONG':
-         return {...state, songs: [...state.songs, action]}
+       const group = state.songsCountByGenre.find(sg => sg._id === action.typeId)
+       const newSongsCountByGenre = state.songsCountByGenre.filter(sg => sg._id !== action.typeId)
+         return {...state, songs: [...state.songs, action], songsCountByGenre: [...newSongsCountByGenre, {_id:group._id, count: group.count+1}]}
     default:
       return { ...state };
   }
