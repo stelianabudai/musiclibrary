@@ -1,5 +1,10 @@
 import {ADD_TYPE, FETCH_SONGS, RESET_SKIP, CHANGE_SKIP, CHANGE_TYPE_ID, ADD_SONG} from './actions'
-const calculateSkip= (count, limit) => (count - count%limit)
+const calculateSkip= (count, limit) => {
+    if(count%limit === 0){
+      return count - limit
+    }
+    return count - count%limit
+}
 
 const reducer = (state, action) => {
   switch (action.type) {
