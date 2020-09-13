@@ -1,14 +1,7 @@
 import reducers from '../../../src/shared/reducers'
 import songs from '../../data/songs'
 import genres from '../../data/genres'
-const songsCountByGenre = [{'_id':'5f5a8b23c67a3f0ee1e6a7aa', count:6}, 
-                           {'_id':'5f5a8b23c67a3f0ee1e6a7ab', count:1},
-                           {'_id':'5f5a8b23c67a3f0ee1e6a7ac', count:1},
-                           {'_id':'5f5a8b23c67a3f0ee1e6a7ad', count:1},
-                           {'_id':'5f5a8b23c67a3f0ee1e6a7ae', count:1},
-                           {'_id':'5f5a8b23c67a3f0ee1e6a7af', count:1}]
-
-
+import songsCountByGenre from '../../data/songsCountByGenre'
 
 import {FETCH_SONGS, RESET_SKIP, CHANGE_GENRE_ID, CHANGE_SKIP, ADD_GENRE} from '../../../src/shared/reducers/actions'
 
