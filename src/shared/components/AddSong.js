@@ -14,6 +14,7 @@ const AddSong = ({addSong, genres, dispatch}) => {
   const history = useHistory();
   const [name, setName] = useState("")
   const [desc, setDesc] = useState("")
+  const [artist, setArtist] = useState("")
   const [typeId, setTypeId] = useState()
 
 return(
@@ -24,7 +25,7 @@ return(
           if (!name.trim() || !desc.trim()) {
             return
           }
-          songSave(name, desc, typeId, addSong, history)     
+          songSave(name, desc, artist, typeId, addSong, history)     
         }}
       >
         <FormGroup>     
@@ -42,6 +43,9 @@ return(
          }
           <label>
             Title<FormControl value={name} placeholder="title" onChange={(e)=>setName(e.target.value)}/>
+          </label>
+          <label>
+            Title<FormControl value={artist} placeholder="artist" onChange={(e)=>setArtist(e.target.value)}/>
           </label>
         </FormGroup>
         <FormGroup>

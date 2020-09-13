@@ -27,7 +27,7 @@ const Songs = ({limit, skip, typeId, genres, songs=[], saveSongs, changeSkip}) =
     }, [skip, limit, typeId, saveSongs])
 
     const rows= songs.map(songs => 
-        <Tr light><td>{ songs.name } </td><td>{ songs.desc } </td></Tr>
+        <Tr light><td>{ songs.name } </td><td>{ songs.artist } </td><td>{ songs.desc } </td></Tr>
     )
 
     return (<div> 
@@ -38,6 +38,13 @@ const Songs = ({limit, skip, typeId, genres, songs=[], saveSongs, changeSkip}) =
             <Button onClick={lastPage}> Last Page </Button> 
         </ButtonGroup>
         <Table>
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Artist</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
          <tbody>      
           {rows}
          </tbody>
