@@ -1,10 +1,15 @@
 import express from 'express'
 const songRouter = express.Router()
-import Song from '../models/Song'
-
+import {createSong, getSongsPaginated} from '../services/songsService'
 songRouter.post('/', async(req, resp) => {
-    await Song.create({...req.body})
+    try{
+      await createSong({...req.body})
     resp.sendStatus(200)
+    }catch(error){
+        //todo add logger 
+        console.log(error)
+        return res.status(500).send('An error has occured')  
+    }
   })
   
 songRouter.get('/', async(req, resp) =>{
@@ -12,13 +17,13 @@ songRouter.get('/', async(req, resp) =>{
     const limit = parseInt(req.query.limit)
     const skip = parseInt(req.query.skip)
     try{
-      const songs =  await Song.find({typeId : typeId}).skip(skip).limit(limit) 
+      const songs = await getSongsPaginated(typeId, skip, limit) 
       return resp.json(songs)
     }
     catch(err){
       //todo use datadog and log err in there
       console.log('error', err)
-      resp.sendStatus(500)
+      return res.status(500).send('An error has occured')  
     }
   })
 

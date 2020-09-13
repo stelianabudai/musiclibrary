@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { response } from 'express'
 import path from 'path'
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
@@ -15,6 +15,7 @@ import {getSongsCountByGenre} from './services/songsService'
 import {getGenres} from './services/generesService'
 import {songRouter} from './routers/songRouter'
 import {genreRouter}from './routers/genreRouter'
+import errorHandler from './middlawares/error'
 
 const app = express()
 app.use(cors())
@@ -23,30 +24,44 @@ app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname)))
 app.use('/songs', songRouter)
 app.use('/genre', genreRouter)
+app.use(errorHandler);
 
-app.get('/', async (req, res) => {
-  console.log('on server')
+
+app.get('/', async (req, res, next) => {
   const scripts = ['vendor.js', 'client.js']
-  const genres = await getGenres()
-  const songsCountByGenre = await getSongsCountByGenre()
-  const initialState = { genres, songsCountByGenre }
-  const appMarkup = ReactDOMServer.renderToString(
-    <StaticRouter location={req.url} context={{}}>
-      <Provider store={createStore(reducers, initialState)}>
-       <App />
-      </Provider>
-    </StaticRouter>
-  );
+  try{
+      const genres = await getGenres()
+      const songsCountByGenre = await getSongsCountByGenre()
+      const initialState = { genres, songsCountByGenre }
+      const appMarkup = ReactDOMServer.renderToString(
+        <StaticRouter location={req.url} context={{}}>
+          <Provider store={createStore(reducers, initialState)}>
+          <App />
+          </Provider>
+        </StaticRouter>
+      );
+      const html = ReactDOMServer.renderToStaticMarkup(
+        <Html
+          children={appMarkup}
+          scripts={scripts}
+          initialState={initialState}
+        />
+      )
 
-  const html = ReactDOMServer.renderToStaticMarkup(
-    <Html
-      children={appMarkup}
-      scripts={scripts}
-      initialState={initialState}
-    />
-  )
+      res.send(`<!doctype html>${html}`)
+  }
+  catch(error){
+    console.log('error', error)
+    next(error)
+  }
+});
 
-  res.send(`<!doctype html>${html}`)
+
+app.use(function(err, req, res, next){
+  if(err){
+    console.log(err);
+    return res.status(500).send('An error has occured. Pleas try later')  
+  }
 });
 
 app.use(function(req, res){

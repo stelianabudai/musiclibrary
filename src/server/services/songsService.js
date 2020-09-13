@@ -7,4 +7,12 @@ const getSongsCountByGenre = async ()=>{
       return await Song.aggregate(agg)
 }
 
-export {getSongsCountByGenre}
+const createSong = async (song) =>{
+  await Song.create(song)
+}
+
+const getSongsPaginated = async (typeId, skip, limit) =>{
+  return  await Song.find({typeId : typeId}).skip(skip).limit(limit) 
+}
+
+export {getSongsCountByGenre, createSong, getSongsPaginated}

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Card from './Card'
 
 const Home = ({ genres }) => {
-    const cards = genres.map((app, index) => {
+    const cards = genres.map((app) => {
       return(
         <div className="app-card" key={app.name}>
           <Card app={app} ></Card>
@@ -16,7 +16,7 @@ const mapStateToProps = ({ genres }) => ({
   genres,
 })
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = () => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)
