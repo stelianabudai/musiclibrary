@@ -1,0 +1,76 @@
+[{  
+    "typeId": "5f5a8b23c67a3f0ee1e6a7aa",
+    "name": "Jazz song 1",
+    "artist": "Jazz artist 1",
+    "desc": "Jazz, musical form, often improvisational, developed by African Americans.  It was influenced by both European harmonic structure and African rhythms"
+  },
+  {  
+    "typeId": "5f5a8b23c67a3f0ee1e6a7aa",
+    "name": "Jazz song 1",
+    "artist": "Jazz artist 1",
+    "desc": "Jazz, musical form, often improvisational, developed by African Americans.  It was influenced by both European harmonic structure and African rhythms"
+  },
+
+  {  
+    "typeId": "5f5a8b23c67a3f0ee1e6a7aa",
+    "name": "Jazz song 2",
+    "artist": "Jazz artist 2",
+    "desc": "Jazz, musical form, often improvisational, developed by African Americans.  It was influenced by both European harmonic structure and African rhythms"
+  },
+
+  {  
+    "typeId": "5f5a8b23c67a3f0ee1e6a7aa",
+    "name": "Jazz song 3",
+    "artist": "Jazz artist 3",
+    "desc": "Jazz, musical form, often improvisational, developed by African Americans.  It was influenced by both European harmonic structure and African rhythms"
+  },
+
+  {  
+    "typeId": "5f5a8b23c67a3f0ee1e6a7aa",
+    "name": "Jazz song",
+    "artist": "Jazz artist",
+    "desc": "Jazz, musical form, often improvisational, developed by African Americans.  It was influenced by both European harmonic structure and African rhythms"
+  },
+
+  {  
+    "typeId": "5f5a8b23c67a3f0ee1e6a7aa",
+    "name": "Jazz song",
+    "artist": "Jazz artist",
+    "desc": "Jazz, musical form, often improvisational, developed by African Americans.  It was influenced by both European harmonic structure and African rhythms"
+  },
+
+
+  {
+    "typeId": "5f5a8b23c67a3f0ee1e6a7ab",
+    "name": "Pop song",
+    "artist": "Pop artist",
+    "desc": "Pandora gives you a personalized music experience that continually evolves with your tastes. Create stations from your favorite songs, artists or genres. Or search browse to find recommended stations for your mood or activity."
+  },
+  {
+    "typeId": "5f5a8b23c67a3f0ee1e6a7ac",
+    "name": "Rock song",
+    "artist": "Rock artist",
+    "desc": "Enjoy all your TV in one place with a new Hulu experience – more personalized and intuitive than ever before. The choice is yours - select a plan featuring Hulu’s entire streaming library, or if you’ve subscribed through Hulu to a plan that includes Live TV"
+  },
+
+  {
+    "typeId": "5f5a8b23c67a3f0ee1e6a7ad",
+    "name": "Dance song",
+    "artist": "Dance artist",
+    "desc": "Join millions of players worldwide as you build your village, raise a clan, and compete in epic Clan Wars! Mustachioed Barbarians, fire wielding Wizards, and other unique troops are waiting for you! Enter the world of Clash!"
+  },
+
+  {
+    "typeId": "5f5a8b23c67a3f0ee1e6a7ae",
+    "name": "Pop Rock song",
+    "artist": "Pop Rock artist",
+    "desc": "Start playing Candy Crush Saga today - loved by millions of players around the world. With over a trillion levels played, this match 3 puzzle game is one of the most popular mobile games of all time!"
+  },
+
+  {
+    "typeId": "5f5a8b23c67a3f0ee1e6a7af",
+    "name": "Pop Dance song",
+    "artist": "Pop Dance artist",
+    "desc": "Start playing Candy Crush Saga today - loved by millions of players around the world. With over a trillion levels played, this match 3 puzzle game is one of the most popular mobile games of all time!"
+  } 
+]

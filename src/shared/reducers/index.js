@@ -9,6 +9,7 @@ const calculateSkip= (count, limit) => {
     return count - count%limit
 }
 const reducer = (state, action) => {
+    console.log('acsssstionaction', action)
   switch (action.type) {
     case ADD_TYPE:
         return {...state,
