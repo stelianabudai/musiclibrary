@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { connect } from 'react-redux';
 import {typesSave} from '../../controllers/types'
 import { useHistory } from 'react-router-dom';
-import {ADD_TYPE} from '../shared/reducers/actions'
+import {ADD_GENRE} from '../shared/reducers/actions'
 
 const Add = ({addType}) => {
   const input = useRef(null)
@@ -33,7 +33,7 @@ const mapStateToProps = ({ genres }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addType: (name, description) => dispatch({ type: ADD_TYPE, name, description, songs:[] }),
+  addType: (name, description) => dispatch({ type: ADD_GENRE, name, description, songs:[] }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Add);

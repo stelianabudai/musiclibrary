@@ -12,12 +12,12 @@ songRouter.post('/', async(req, resp) => {
     }
   })
   
-songRouter.get('/', async(req, resp) =>{
-    const typeId = req.query.typeId
+songRouter.get('/', async (req, resp) =>{
+    const genreId = req.query.genreId
     const limit = parseInt(req.query.limit)
     const skip = parseInt(req.query.skip)
     try{
-      const songs = await getSongsPaginated(typeId, skip, limit) 
+      const songs = await getSongsPaginated(genreId, skip, limit) 
       return resp.json(songs)
     }
     catch(err){

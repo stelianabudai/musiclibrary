@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { CHANGE_TYPE_ID, RESET_SKIP } from '../reducers/actions'
+import { CHANGE_GENRE_ID, RESET_SKIP } from '../reducers/actions'
 import {
     Card as StyledCard,
     CardBody,
@@ -14,7 +14,7 @@ const Button = styled.button`
   width: '18rem'
 `
 
-const Card = ({genre, songsCountByGenre, addTypeId, resetPage}) => {
+const Card = ({genre, songsCountByGenre, addgenreId, resetPage}) => {
     const history = useHistory();
     const song = songsCountByGenre.find(s => s._id === genre._id)
 
@@ -23,7 +23,7 @@ const Card = ({genre, songsCountByGenre, addTypeId, resetPage}) => {
             <CardBody>
             <CardTitle h3>{genre.name}</CardTitle>
             <CardText>{genre.desc}</CardText>
-                    <Button onClick={() => { addTypeId(genre._id); resetPage(); history.push('/songs');} }>View {song? song.count:0} Songs</Button>
+                    <Button onClick={() => { addgenreId(genre._id); resetPage(); history.push('/songs');} }>View {song? song.count:0} Songs</Button>
             </CardBody>
         </StyledCard>
         )
@@ -34,7 +34,7 @@ const mapStateToProps = ({songsCountByGenre }) => ({
   })
   
   const mapDispatchToProps = (dispatch) => ({
-    addTypeId: (typeId) => dispatch({ type: CHANGE_TYPE_ID, typeId }),
+    addgenreId: (genreId) => dispatch({ type: CHANGE_GENRE_ID, genreId }),
     resetPage: () => dispatch({ type: RESET_SKIP}),
   })
   

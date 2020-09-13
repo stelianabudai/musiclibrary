@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const fetchSongs= (limit, skip, typeId, dispatch) => {
-    axios.get(`/songs?limit=${limit}&skip=${skip}&typeId=${typeId}`)
+const fetchSongs= (limit, skip, genreId, dispatch) => {
+    axios.get(`/songs?limit=${limit}&skip=${skip}&genreId=${genreId}`)
     .then((response) => {
         dispatch(response.data) 
     })
@@ -10,11 +10,11 @@ const fetchSongs= (limit, skip, typeId, dispatch) => {
     });    
 }
 
-const songSave = (name, desc, artist, typeId, dispatch, history) => {
+const songSave = (name, desc, artist, genreId, dispatch, history) => {
     
-    axios.post('/songs', {name, desc, typeId, artist})
+    axios.post('/songs', {name, desc, genreId, artist})
         .then((response) => {
-            dispatch(name, desc, typeId),
+            dispatch(name, desc, genreId),
             history.push('/songs');
         }).catch((error) => {
             console.log(error)

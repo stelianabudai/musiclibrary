@@ -15,7 +15,7 @@ const AddSong = ({addSong, genres}) => {
   const [name, setName] = useState("")
   const [desc, setDesc] = useState("")
   const [artist, setArtist] = useState("")
-  const [typeId, setTypeId] = useState()
+  const [genreId, setgenreId] = useState()
 
 return(
       <div>
@@ -25,7 +25,7 @@ return(
           if (!name.trim() || !desc.trim()) {
             return
           }
-          songSave(name, desc, artist, typeId, addSong, history)     
+          songSave(name, desc, artist, genreId, addSong, history)     
         }}
       >
         <FormGroup>     
@@ -33,7 +33,7 @@ return(
            <label>
             Genre<FormControl select placeholder="title" 
                     defaultValue={'DEFAULT'}
-                    onChange={(e)=> setTypeId(e.target.value)}>
+                    onChange={(e)=> setgenreId(e.target.value)}>
                       <option value="DEFAULT" disabled>Choose genre ...</option>
                       {genres.map(g => 
                          <option value={g._id}>{g.name}</option>) 
@@ -64,7 +64,7 @@ const mapStateToProps = ({ genres}) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addSong: (name, description, typeId) => dispatch({ type: ADD_SONG, name, description, typeId }),
+  addSong: (name, description, genreId) => dispatch({ type: ADD_SONG, name, description, genreId }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddSong);
