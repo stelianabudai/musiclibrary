@@ -1,4 +1,5 @@
 import {ADD_GENRE, FETCH_SONGS, RESET_SKIP, CHANGE_SKIP, CHANGE_GENRE_ID, ADD_SONG} from './actions'
+
 const calculateSkip= (count, limit) => {
     if(count < limit){
       return 0
@@ -8,6 +9,7 @@ const calculateSkip= (count, limit) => {
     }
     return count - count%limit
 }
+
 const reducer = (state, action) => {
   switch (action.type) {
     case ADD_GENRE:
