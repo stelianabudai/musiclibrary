@@ -14,7 +14,7 @@ const Label = styled.label`
     min-width: 20em;
 `;
 
-const Songs = ({limit, skip, typeId, genres, songs=[], saveSongs, changeSkip}) => {
+const Songs = ({limit, skip, genreId, genres, songs=[], saveSongs, changeSkip}) => {
 
     const nextPage = () => {
         changeSkip(skip + limit)
@@ -28,8 +28,8 @@ const Songs = ({limit, skip, typeId, genres, songs=[], saveSongs, changeSkip}) =
     }
 
     useEffect(() => {
-        fetchSongs(limit, skip, typeId, saveSongs)
-    }, [skip, limit, typeId, saveSongs])
+        fetchSongs(limit, skip, genreId, saveSongs)
+    }, [skip, limit, genreId, saveSongs])
 
     const rows= songs.map(songs => 
         <Tr light><td>{ songs.name } </td><td>{ songs.artist } </td><td>{ songs.desc } </td></Tr>
@@ -40,7 +40,7 @@ const Songs = ({limit, skip, typeId, genres, songs=[], saveSongs, changeSkip}) =
             <Button onClick={previousPage}> Previous Page </Button> 
             <Button onClick={nextPage}> Next Page </Button>
         </ButtonGroup>
-        <Label>Genre: {genres.find(g =>g._id === typeId).name}</Label>
+        <Label>Genre: {genres.find(g =>g._id === genreId).name}</Label>
         <Table>
         <thead>
             <tr>
@@ -58,11 +58,11 @@ const Songs = ({limit, skip, typeId, genres, songs=[], saveSongs, changeSkip}) =
 }
 
 
-const mapStateToProps = ({ genres, limit, skip, typeId, songs}) => ({
+const mapStateToProps = ({ genres, limit, skip, genreId, songs}) => ({
     genres,
     limit,
     skip,
-    typeId,
+    genreId,
     songs
   });
   

@@ -1,6 +1,6 @@
 import reducers from '../../../src/shared/reducers'
 import songs from '../../data/songs'
-import {FETCH_SONGS, RESET_SKIP, CHANGE_TYPE_ID, CHANGE_SKIP} from '../../../src/shared/reducers/actions'
+import {FETCH_SONGS, RESET_SKIP, CHANGE_TYPE_ID, CHANGE_SKIP, ADD_TYPE} from '../../../src/shared/reducers/actions'
 
 describe("Reducers ", () => {
     test("FETCH_SONGS concatenates songs to the state", () => {
@@ -18,7 +18,16 @@ describe("Reducers ", () => {
     })
 
     test("CHANGE_TYPE_ID change skipped items", () => {
-        const newState =  reducers({skip:78}, {type: CHANGE_TYPE_ID, typeId:'5f5a8b23c67a3f0ee1e6a7ab'})  
-        expect(newState.typeId).toEqual('5f5a8b23c67a3f0ee1e6a7ab')
+        const newState =  reducers({skip:78}, {type: CHANGE_TYPE_ID, genreId:'5f5a8b23c67a3f0ee1e6a7ab'})  
+        expect(newState.genreId).toEqual('5f5a8b23c67a3f0ee1e6a7ab')
     })
+    test("CHANGE_TYPE_ID change skipped items", () => {
+        const newState =  reducers({skip:78}, {type: CHANGE_TYPE_ID, genreId:'5f5a8b23c67a3f0ee1e6a7ab'})  
+        expect(newState.genreId).toEqual('5f5a8b23c67a3f0ee1e6a7ab')
+    })
+    test("ADD_GENRE", () => {
+        const newState =  reducers({skip:78}, {type: ADD_GENRE, genreId:'5f5a8b23c67a3f0ee1e6a7ab'})  
+        expect(newState.genreId).toEqual('5f5a8b23c67a3f0ee1e6a7ab')
+    })
+
   })
