@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {typesSave} from '../../controllers/typesController'
 import { useHistory } from "react-router-dom";
 import { Button } from 'styled-button-component'
-import {ADD_TYPE} from '../reducers/actions'
+import {ADD_GENRE} from '../reducers/actions'
 import {
   FormControl,
   FormGroup,
@@ -44,7 +44,7 @@ const mapStateToProps = ({  }) => ({
   
 });
 const mapDispatchToProps = (dispatch) => ({
-  addType: (name, description, typeId) => dispatch({ type: ADD_TYPE, name, description, typeId}),
+  addType: (name, description, genreId) => dispatch({ type: ADD_GENRE, name, description, genreId}),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddGenre);
