@@ -4,6 +4,15 @@ import { connect } from 'react-redux';
 import { Table, Tr } from 'styled-table-component'
 import { Button, ButtonGroup } from 'styled-button-component'
 import {FETCH_SONGS, CHANGE_SKIP} from '../reducers/actions'
+import styled from 'styled-components'
+
+
+const Label = styled.label`
+    font-size: 1.25em;
+    padding-left: 3em;
+    padding-top: 0.25em;
+    min-width: 20em;
+`;
 
 const Songs = ({limit, skip, typeId, genres, songs=[], saveSongs, changeSkip}) => {
 
@@ -27,11 +36,11 @@ const Songs = ({limit, skip, typeId, genres, songs=[], saveSongs, changeSkip}) =
     )
 
     return (<div> 
-        <label>Genre: {genres.find(g =>g._id === typeId).name}</label>
         <ButtonGroup>
             <Button onClick={previousPage}> Previous Page </Button> 
             <Button onClick={nextPage}> Next Page </Button>
         </ButtonGroup>
+        <Label>Genre: {genres.find(g =>g._id === typeId).name}</Label>
         <Table>
         <thead>
             <tr>
