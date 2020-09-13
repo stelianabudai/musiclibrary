@@ -18,10 +18,6 @@ const Songs = ({limit, skip, typeId, genres, songs=[], saveSongs, changeSkip}) =
         changeSkip(skip - limit)
     }
 
-    const lastPage = () => {
-        changeSkip(skip - limit)
-    }
-
     useEffect(() => {
         fetchSongs(limit, skip, typeId, saveSongs)
     }, [skip, limit, typeId, saveSongs])
@@ -35,7 +31,6 @@ const Songs = ({limit, skip, typeId, genres, songs=[], saveSongs, changeSkip}) =
         <ButtonGroup>
             <Button onClick={previousPage}> Previous Page </Button> 
             <Button onClick={nextPage}> Next Page </Button>
-            <Button onClick={lastPage}> Last Page </Button> 
         </ButtonGroup>
         <Table>
         <thead>

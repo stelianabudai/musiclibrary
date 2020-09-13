@@ -9,7 +9,7 @@ import {
   FormGroup,
 } from 'styled-form-component';
 
-const AddGenre = ({addType, dispatch}) => {
+const AddGenre = ({addType}) => {
   const [name, setName] = useState("")
   const [desc, setDesc] = useState("")
   const history = useHistory();
@@ -36,15 +36,13 @@ return(
           <FormControl textarea rows="3" value={desc} type="textarea" onChange={(e)=>setDesc(e.target.value)}/>
         </label>
     </FormGroup>
-        <Button type="submit">Add Type</Button>
+        <Button type="submit">Add Genre</Button>
       </form>
     </div>
 )};
-
-const mapStateToProps = ({ genres }) => ({
-  genres
+const mapStateToProps = ({  }) => ({
+  
 });
-
 const mapDispatchToProps = (dispatch) => ({
   addType: (name, description, typeId) => dispatch({ type: ADD_TYPE, name, description, typeId}),
 });

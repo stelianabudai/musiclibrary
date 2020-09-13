@@ -14,23 +14,22 @@ const Button = styled.button`
   width: '18rem'
 `
 
-const Card = ({app, songsCountByGenre, addTypeId, resetPage}) => {
+const Card = ({genre, songsCountByGenre, addTypeId, resetPage}) => {
     const history = useHistory();
-    const song = songsCountByGenre.find(s => s._id === app._id)
+    const song = songsCountByGenre.find(s => s._id === genre._id)
 
     return (    
             <StyledCard>
             <CardBody>
-            <CardTitle h3>{app.name}</CardTitle>
-            <CardText>{app.desc}</CardText>
-                    <Button onClick={() => { addTypeId(app._id); resetPage(); history.push('/songs');} }>View {song? song.count:0} Songs</Button>
+            <CardTitle h3>{genre.name}</CardTitle>
+            <CardText>{genre.desc}</CardText>
+                    <Button onClick={() => { addTypeId(genre._id); resetPage(); history.push('/songs');} }>View {song? song.count:0} Songs</Button>
             </CardBody>
         </StyledCard>
         )
 }
 
-const mapStateToProps = ({ genres, songsCountByGenre }) => ({
-    genres, 
+const mapStateToProps = ({songsCountByGenre }) => ({
     songsCountByGenre
   })
   

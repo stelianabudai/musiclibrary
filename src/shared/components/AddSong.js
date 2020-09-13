@@ -10,7 +10,7 @@ import {
 } from 'styled-form-component';
 
 
-const AddSong = ({addSong, genres, dispatch}) => {
+const AddSong = ({addSong, genres}) => {
   const history = useHistory();
   const [name, setName] = useState("")
   const [desc, setDesc] = useState("")
@@ -45,7 +45,7 @@ return(
             Title<FormControl value={name} placeholder="title" onChange={(e)=>setName(e.target.value)}/>
           </label>
           <label>
-            Title<FormControl value={artist} placeholder="artist" onChange={(e)=>setArtist(e.target.value)}/>
+            Artist<FormControl value={artist} placeholder="artist" onChange={(e)=>setArtist(e.target.value)}/>
           </label>
         </FormGroup>
         <FormGroup>
@@ -59,9 +59,8 @@ return(
     </div>
 )};
 
-const mapStateToProps = ({ genres, songs, typeId }) => ({
-  genres, 
-  songs
+const mapStateToProps = ({ genres}) => ({
+  genres 
 });
 
 const mapDispatchToProps = (dispatch) => ({
