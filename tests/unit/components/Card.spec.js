@@ -8,24 +8,22 @@ import songsCountByGenre from '../../data/songsCountByGenre'
 configure({ adapter: new Adapter() });
 import PureCard from '../../../src/shared/components/PureCard';
 
-describe('<Card /> with no props', () => {
+describe('<Card /> ', () => {
 const addgenreId =()=>{}
 //const onChange = jest.fn()
+
 const resetPage =()=>{}
-  const container = shallow(
-    <PureCard songsCountByGenre={songsCountByGenre} genre={genres[0]}
-     addgenreId={addgenreId} resetPage={resetPage}/>);
-  
 
-  it('should a Jazz title/description', () => {
-    console.log('container',  container.debug())
-    console.log('dsdsds', container.find('h3').debug())
+const container = shallow(
+        <PureCard songsCountByGenre={songsCountByGenre} genre={genres[0]}
+           addgenreId={addgenreId} resetPage={resetPage}/>)
+
+  it('should Card have proper title/description', () => {
     expect(container.contains('Jazz')).toEqual(true);
-    expect(container.contains('Jazz, musical form, often improvisational, developed by African Americans')).toEqual(true);
-  });
+    const cardTitle = container.find('[data-testid="title"]')
+    expect(cardTitle.contains('Jazz')).toEqual(true);
+    const buttonText = container.find('[data-testid="button"]').render().text()
+    expect(buttonText).toEqual('View 6 Songs')
+  })
 
-  it('should have a password field', () => { /* Similar to above */ });
-  it('should have proper props for password field', () => { /* Trimmed for less lines to read */ });
-  it('should have a submit button', () => { /* */ });
-  it('should have proper props for submit button', () => { /* */ });
-});
+})

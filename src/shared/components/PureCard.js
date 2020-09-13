@@ -21,7 +21,7 @@ const PureCard = ({genre, songsCountByGenre, addgenreId, resetPage}) => {
             <CardBody>
             <CardTitle data-testid="title" h3>{genre.name}</CardTitle>
             <CardText>{genre.desc}</CardText>
-                    <Button onClick={() => { addgenreId(genre._id); resetPage(); history.push('/songs');} }>View {song? song.count:0} Songs</Button>
+                    <Button data-testid="button" onClick={() => { addgenreId(genre._id); resetPage(); history.push('/songs');} }>View {song? song.count:0} Songs</Button>
             </CardBody>
         </StyledCard>
         )
