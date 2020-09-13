@@ -1,6 +1,16 @@
 import reducers from '../../../src/shared/reducers'
 import songs from '../../data/songs'
-import {FETCH_SONGS, RESET_SKIP, CHANGE_TYPE_ID, CHANGE_SKIP, ADD_TYPE} from '../../../src/shared/reducers/actions'
+import genres from '../../data/genres'
+const songsCountByGenre = [{'_id':'5f5a8b23c67a3f0ee1e6a7aa', count:6}, 
+                           {'_id':'5f5a8b23c67a3f0ee1e6a7ab', count:1},
+                           {'_id':'5f5a8b23c67a3f0ee1e6a7ac', count:1},
+                           {'_id':'5f5a8b23c67a3f0ee1e6a7ad', count:1},
+                           {'_id':'5f5a8b23c67a3f0ee1e6a7ae', count:1},
+                           {'_id':'5f5a8b23c67a3f0ee1e6a7af', count:1}]
+
+
+
+import {FETCH_SONGS, RESET_SKIP, CHANGE_GENRE_ID, CHANGE_SKIP, ADD_GENRE} from '../../../src/shared/reducers/actions'
 
 describe("Reducers ", () => {
     test("FETCH_SONGS concatenates songs to the state", () => {
@@ -18,16 +28,24 @@ describe("Reducers ", () => {
     })
 
     test("CHANGE_TYPE_ID change skipped items", () => {
-        const newState =  reducers({skip:78}, {type: CHANGE_TYPE_ID, genreId:'5f5a8b23c67a3f0ee1e6a7ab'})  
+        const newState =  reducers({skip:78}, {type: CHANGE_GENRE_ID, genreId:'5f5a8b23c67a3f0ee1e6a7ab'})  
         expect(newState.genreId).toEqual('5f5a8b23c67a3f0ee1e6a7ab')
     })
-    test("CHANGE_TYPE_ID change skipped items", () => {
-        const newState =  reducers({skip:78}, {type: CHANGE_TYPE_ID, genreId:'5f5a8b23c67a3f0ee1e6a7ab'})  
+    test("CHANGE_GENRE_ID change skipped items", () => {
+        const newState =  reducers({skip:78}, {type: CHANGE_GENRE_ID, genreId:'5f5a8b23c67a3f0ee1e6a7ab'})  
         expect(newState.genreId).toEqual('5f5a8b23c67a3f0ee1e6a7ab')
     })
-    test("ADD_GENRE", () => {
-        const newState =  reducers({skip:78}, {type: ADD_GENRE, genreId:'5f5a8b23c67a3f0ee1e6a7ab'})  
-        expect(newState.genreId).toEqual('5f5a8b23c67a3f0ee1e6a7ab')
+    test("ADD_GENRE test songCountByGenre and genres are populated properly", () => {
+        const state = {genres, songsCountByGenre, limit:5, skip:0}
+        const action = {type: ADD_GENRE, genreId: '5f5a8b23c67a3f0ee1e6a7ag', name:'POP POP', description: 'description'}
+        const newState =  reducers(state, action) 
+
+        const songCountByGenre = newState.songsCountByGenre.find( it => it._id === '5f5a8b23c67a3f0ee1e6a7ag') 
+        expect(songCountByGenre.count).toEqual(0)
+
+        const newGenre = newState.genres.find(it =>  it._id === '5f5a8b23c67a3f0ee1e6a7ag')
+        expect(newGenre.name).toEqual('POP POP')
+        expect(newGenre.desc).toEqual('description')
     })
 
   })
