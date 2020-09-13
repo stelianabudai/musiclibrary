@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react'
 import {fetchSongs} from '../../controllers/songsController'
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom'
 import { Table, Tr } from 'styled-table-component'
 import { Button, ButtonGroup } from 'styled-button-component'
 import {FETCH_SONGS, CHANGE_SKIP} from '../reducers/actions'
 
-const Songs = ({limit=5, skip=0, typeId, songs=[], saveSongs, changeSkip}) => {
-    const history = useHistory();
+const Songs = ({limit, skip, typeId, genres, songs=[], saveSongs, changeSkip}) => {
 
     const nextPage = () => {
         changeSkip(skip + limit)
@@ -33,6 +31,7 @@ const Songs = ({limit=5, skip=0, typeId, songs=[], saveSongs, changeSkip}) => {
     )
 
     return (<div> 
+        <label>Genre: {genres.find(g =>g._id === typeId).name}</label>
         <ButtonGroup>
             <Button onClick={previousPage}> Previous Page </Button> 
             <Button onClick={nextPage}> Next Page </Button>
@@ -43,10 +42,6 @@ const Songs = ({limit=5, skip=0, typeId, songs=[], saveSongs, changeSkip}) => {
           {rows}
          </tbody>
         </Table>
-       
-        <ButtonGroup>
-           <Button onClick={()=> history.push('/addSong')}> Add Song </Button>
-        </ButtonGroup>
         </div>
     )
 }
@@ -61,7 +56,7 @@ const mapStateToProps = ({ genres, limit, skip, typeId, songs}) => ({
   });
   
   const mapDispatchToProps = (dispatch) => ({
-    saveSongs: (songs, limit) => dispatch({ type: FETCH_SONGS, songs, limit}),
+    saveSongs: (songs) => dispatch({ type: FETCH_SONGS, songs}),
     changeSkip: (skip) => dispatch({ type: CHANGE_SKIP, skip })
   });
   

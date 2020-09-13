@@ -30,7 +30,7 @@ app.get('/', async (req, res, next) => {
   try{
       const genres = await getGenres()
       const songsCountByGenre = await getSongsCountByGenre()
-      const initialState = { genres, songsCountByGenre }
+      const initialState = { genres, songsCountByGenre, limit:5, skip:0}
       const appMarkup = ReactDOMServer.renderToString(
         <StaticRouter location={req.url} context={{}}>
           <Provider store={createStore(reducers, initialState)}>

@@ -11,6 +11,7 @@ const App = () => (
     <ul>
       <li><Link to="/">Home</Link></li>
       <li><Link to="/addGenre">Add Genre</Link></li>
+      <li><Link to="/addSong">Add Song</Link></li>
     </ul>
 
     <hr />

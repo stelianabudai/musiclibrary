@@ -10,10 +10,11 @@ import {
 } from 'styled-form-component';
 
 
-const AddSong = ({addSong, typeId, dispatch}) => {
+const AddSong = ({addSong, genres, dispatch}) => {
   const history = useHistory();
   const [name, setName] = useState("")
   const [desc, setDesc] = useState("")
+  const [typeId, setTypeId] = useState()
 
 return(
       <div>
@@ -26,9 +27,21 @@ return(
           songSave(name, desc, typeId, addSong, history)     
         }}
       >
-        <FormGroup>
+        <FormGroup>     
+         {
+           <label>
+            Genre<FormControl select placeholder="title" 
+                    defaultValue={'DEFAULT'}
+                    onChange={(e)=> setTypeId(e.target.value)}>
+                      <option value="DEFAULT" disabled>Choose genre ...</option>
+                      {genres.map(g => 
+                         <option value={g._id}>{g.name}</option>) 
+                      }
+                 </FormControl>
+          </label>        
+         }
           <label>
-            Add title<FormControl value={name} placeholder="title" onChange={(e)=>setName(e.target.value)}/>
+            Title<FormControl value={name} placeholder="title" onChange={(e)=>setName(e.target.value)}/>
           </label>
         </FormGroup>
         <FormGroup>
@@ -44,8 +57,7 @@ return(
 
 const mapStateToProps = ({ genres, songs, typeId }) => ({
   genres, 
-  songs,
-  typeId
+  songs
 });
 
 const mapDispatchToProps = (dispatch) => ({

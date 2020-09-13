@@ -4,8 +4,8 @@ import Type from '../models/Genre'
 
 genreRouter.post('/', async(req, resp) => {
     try{
-         await Type.create({...req.body})
-         resp.sendStatus(200)
+         const newGenre = await Type.create({...req.body})
+         resp.send(newGenre)
     }catch(error){
         //todo add logger 
         console.log(error)

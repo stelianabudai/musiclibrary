@@ -46,7 +46,7 @@ const mapStateToProps = ({ genres }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addType: (name, description) => dispatch({ type: ADD_TYPE, name, description}),
+  addType: (name, description, typeId) => dispatch({ type: ADD_TYPE, name, description, typeId}),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddGenre);
