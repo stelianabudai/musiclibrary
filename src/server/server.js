@@ -15,7 +15,6 @@ import {getSongsCountByGenre} from './services/songsService'
 import {getGenres} from './services/generesService'
 import {songRouter} from './routers/songRouter'
 import {genreRouter}from './routers/genreRouter'
-import errorHandler from './middlawares/error'
 
 const app = express()
 app.use(cors())
@@ -24,7 +23,6 @@ app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname)))
 app.use('/songs', songRouter)
 app.use('/genre', genreRouter)
-app.use(errorHandler);
 
 
 app.get('/', async (req, res, next) => {
