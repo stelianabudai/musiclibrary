@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const typesSave = (name, desc, dispatch, history, sendError) => {
+const genreSave = (name, desc, dispatch, history, sendError) => {
     axios.post('/genre', {name, desc})
         .then((res) => {
             dispatch(name, desc, res.data._id)
@@ -12,4 +12,4 @@ const typesSave = (name, desc, dispatch, history, sendError) => {
         });
 }
 
-export {typesSave}
+export {genreSave}
