@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import {songSave} from '../../controllers/songsController'
+import {songSave} from '../../client/controllers/songsController'
 import { useHistory } from "react-router-dom";
 import { Button } from 'styled-button-component'
 import { ADD_SONG, ERROR } from '../reducers/actions'

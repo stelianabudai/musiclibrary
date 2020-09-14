@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { connect } from 'react-redux';
-import {genreSave} from '../../controllers/genreController'
+import {genreSave} from '../../client/controllers/genreController'
 import { useHistory } from "react-router-dom";
 import { Button } from 'styled-button-component'
 import {ADD_GENRE, ERROR} from '../reducers/actions'

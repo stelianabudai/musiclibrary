@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import {fetchSongs} from '../../controllers/songsController'
+import {fetchSongs} from '../../client/controllers/songsController'
 import { connect } from 'react-redux';
 import { Table, Tr } from 'styled-table-component'
 import { Button, ButtonGroup } from 'styled-button-component'
