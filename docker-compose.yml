@@ -1,5 +1,5 @@
 
-version: "3"
+version: "2.1"
 services:
   mongo-sample-data:
     build: ./infra
