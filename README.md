@@ -32,3 +32,7 @@ https://github.com/stelianabudai/musiclibrary/pull/16
 
 npm run-script test
 
+## Running lint
+
+npm run-script lint
+
