@@ -30,7 +30,7 @@ app.get('/home', async (req, res, next) => {
   try{
       const genres = await getGenres()
       const songsCountByGenre = await getSongsCountByGenre()
-      const initialState = { genres, songsCountByGenre, limit:5, skip:0}
+      const initialState = { genres, songsCountByGenre, limit:5, skip:0, error:false}
       const appMarkup = ReactDOMServer.renderToString(
         <StaticRouter location={req.url} context={{}}>
           <Provider store={createStore(reducers, initialState)}>
@@ -45,15 +45,13 @@ app.get('/home', async (req, res, next) => {
           initialState={initialState}
         />
       )
-
-      res.send(`<!doctype html>${html}`)
+     res.send(`<!doctype html>${html}`)
   }
   catch(error){
     console.log('error', error)
     next(error)
   }
-});
-
+})
 
 app.use(function(err, req, res, next){
   if(err){

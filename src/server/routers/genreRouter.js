@@ -9,7 +9,7 @@ genreRouter.post('/', async(req, resp) => {
     }catch(error){
         //todo add logger 
         console.log(error)
-        return res.status(500).send('An error has occured')  
+        return resp.status(500).send('An error has occured')  
     }
 })
 

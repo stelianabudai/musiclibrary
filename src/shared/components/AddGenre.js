@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import {typesSave} from '../../controllers/typesController'
 import { useHistory } from "react-router-dom";
 import { Button } from 'styled-button-component'
-import {ADD_GENRE} from '../reducers/actions'
+import {ADD_GENRE, ERROR} from '../reducers/actions'
 import {
   FormControl,
   FormGroup,
 } from 'styled-form-component';
 
-const AddGenre = ({addType}) => {
+const AddGenre = ({addType, sendError}) => {
   const [name, setName] = useState("")
   const [desc, setDesc] = useState("")
   const history = useHistory();
@@ -22,7 +22,7 @@ return(
           if (!name.trim() || !desc.trim()) {
             return
           }
-          typesSave(name, desc, addType, history)  
+          typesSave(name, desc, addType, history, sendError)  
         }}
       >
       <FormGroup>
@@ -45,7 +45,8 @@ const mapStateToProps = ({  }) => ({
 });
 const mapDispatchToProps = (dispatch) => ({
   addType: (name, description, genreId) => dispatch({ type: ADD_GENRE, name, description, genreId}),
-});
+  sendError: (status) => dispatch({ type: ERROR, status})
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddGenre);
+export default connect(mapStateToProps, mapDispatchToProps)(AddGenre)
 

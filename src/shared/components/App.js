@@ -5,7 +5,6 @@ import AddGenre from './AddGenre'
 import Songs from './Songs'
 import AddSong from './AddSong'
 
-
 const App = () => (
   <div>
     <ul>
@@ -13,7 +12,6 @@ const App = () => (
       <li><Link to="/addGenre">Add Genre</Link></li>
       <li><Link to="/addSong">Add Song</Link></li>
     </ul>
-
     <hr />
 
     <Switch>
