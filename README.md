@@ -18,7 +18,7 @@ once the above is done
 npm start
 ```
 
-Then, open the page [http://localhost:3003/home](http://localhost:3003/home) in your web browser.
+Then open the page [http://localhost:3003/home](http://localhost:3003/home) in your web browser.
 
 
 ## Alternative -> start both application and mong-db with: docker docker-compose up -d 
