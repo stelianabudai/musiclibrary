@@ -8,7 +8,7 @@ describe("Song controller", () => {
         const limit = 5
         const skip=3
         const  genreId = '5f5a8b23c67a3f0ee1e6a7ab'
-        nock('/songs?limit=5&skip=3&&genreId=5f5a8b23c67a3f0ee1e6a7ab').get('/').reply(200, songs)
+        nock(`/songs?limit=${limit}&skip=${skip}&&genreId=${genreId}`).get('/').reply(200, songs)
 
         fetchSongs(limit, skip, genreId, dispatch)
         expect(dispatch.calledOnce).toBe.true;   
