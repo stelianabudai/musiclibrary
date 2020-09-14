@@ -1,0 +1,15 @@
+
+version: "2"
+services:
+  mongo-sample-data:
+    build: ./infra
+    ports:
+      - "27017:27017"
+    environment:
+      NODE_ENV: production
+  webserver:
+    build: ./
+    ports:
+      - "3003:3003"
+    links:
+      - mongo-sample-data 

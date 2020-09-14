@@ -4,6 +4,8 @@ Example of the universal React app for the blog post purpose.
 
 ## Installation
 
+docker-compose up -d
+
 After you clone the repo, install all the necessary npm dependencies:
 
 ```
