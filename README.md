@@ -2,7 +2,7 @@
 
 ## Installation
 
-After you clone the repo, install all the necessary npm dependencies:
+Clone the repo and install npm dependencies:
 
 ```
 npm install
@@ -10,29 +10,32 @@ npm install
 
 ## Running the App
 
-./run-db.sh -> for starting the database with some sample data
+Start the DB with some sample data:
+```
+./run-db.sh 
+```
 
-once the above is done
+After the DB started:
 
 ```
 npm start
 ```
 
-Then open the page [http://localhost:3003/home](http://localhost:3003/home) in your web browser.
+Open the page [http://localhost:3003/home](http://localhost:3003/home) to access the app.
 
 
-## Alternative -> start both application and mong-db with: docker docker-compose up -d 
+## Alternative: start both application and mongoDB with: docker docker-compose up -d 
 
---> work in progress in branch
-
-https://github.com/stelianabudai/musiclibrary/pull/16 
+(work in progress) on this branch https://github.com/stelianabudai/musiclibrary/pull/16 
 
 
 ## Running tests
 
+```
 npm run-script test
+```
 
 ## Running lint
-
+```
 npm run-script lint
-
+```
