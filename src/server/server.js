@@ -1,4 +1,4 @@
-import express, { response } from 'express'
+import express from 'express'
 import path from 'path'
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
@@ -67,4 +67,4 @@ app.use(function(req, res){
   res.send("Page not found!!!!");
 });
 
-app.listen(3002, () => console.log('Listening on localhost:3002'))
+app.listen(3003, () => console.log('Listening on localhost:3002'))
