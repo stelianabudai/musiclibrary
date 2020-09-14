@@ -21,6 +21,8 @@ npm start
 Then, open the page [http://localhost:3003/home](http://localhost:3003) in your web browser.
 
 
-## Alternative -> start both application and mong-db with docker docker-compose up -d --> work in progress 
+## Alternative -> start both application and mong-db with: docker docker-compose up -d 
+
+--> work in progress 
 
 https://github.com/stelianabudai/musiclibrary/pull/16 
