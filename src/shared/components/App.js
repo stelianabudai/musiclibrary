@@ -21,6 +21,6 @@ const App = () => (
       <Route path="/home" component={Home} />
     </Switch>
   </div>
-);
+)
 
-export default App;
+export default App

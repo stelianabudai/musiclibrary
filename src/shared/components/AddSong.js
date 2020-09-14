@@ -3,14 +3,13 @@ import { connect } from 'react-redux';
 import {songSave} from '../../controllers/songsController'
 import { useHistory } from "react-router-dom";
 import { Button } from 'styled-button-component'
-import { ADD_SONG } from '../reducers/actions'
+import { ADD_SONG, ERROR } from '../reducers/actions'
 import {
   FormControl,
   FormGroup,
 } from 'styled-form-component';
 
-
-const AddSong = ({addSong, genres}) => {
+const AddSong = ({addSong, genres, sendError}) => {
   const history = useHistory();
   const [name, setName] = useState("")
   const [desc, setDesc] = useState("")
@@ -25,7 +24,7 @@ return(
           if (!name.trim() || !desc.trim()) {
             return
           }
-          songSave(name, desc, artist, genreId, addSong, history)     
+          songSave(name, desc, artist, genreId, addSong, history, sendError)     
         }}
       >
         <FormGroup>     
@@ -65,7 +64,8 @@ const mapStateToProps = ({ genres}) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   addSong: (name, description, genreId) => dispatch({ type: ADD_SONG, name, description, genreId }),
+  sendError: (status) => dispatch({ type: ERROR, status})
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddSong);
+export default connect(mapStateToProps, mapDispatchToProps)(AddSong)
 

@@ -3,7 +3,7 @@ import {fetchSongs} from '../../controllers/songsController'
 import { connect } from 'react-redux';
 import { Table, Tr } from 'styled-table-component'
 import { Button, ButtonGroup } from 'styled-button-component'
-import {FETCH_SONGS, CHANGE_SKIP} from '../reducers/actions'
+import {FETCH_SONGS, CHANGE_SKIP, ERROR} from '../reducers/actions'
 import styled from 'styled-components'
 
 
@@ -14,7 +14,7 @@ const Label = styled.label`
     min-width: 20em;
 `;
 
-const Songs = ({limit, skip, genreId, genres, songs=[], songsCountByGenre, saveSongs, changeSkip}) => {
+const Songs = ({limit, skip, genreId, genres, songs=[], songsCountByGenre, saveSongs, changeSkip, sendError}) => {
 
     const nextPage = () => {
         changeSkip(skip + limit)
@@ -25,7 +25,7 @@ const Songs = ({limit, skip, genreId, genres, songs=[], songsCountByGenre, saveS
     }
 
     useEffect(() => {
-        fetchSongs(limit, skip, genreId, saveSongs)
+        fetchSongs(limit, skip, genreId, saveSongs, sendError)
     }, [skip, limit, genreId, saveSongs])
 
     const rows= songs.map(songs => 
@@ -68,7 +68,8 @@ const mapStateToProps = ({ genres, limit, skip, genreId, songs, songsCountByGenr
   
   const mapDispatchToProps = (dispatch) => ({
     saveSongs: (songs) => dispatch({ type: FETCH_SONGS, songs}),
-    changeSkip: (skip) => dispatch({ type: CHANGE_SKIP, skip })
+    changeSkip: (skip) => dispatch({ type: CHANGE_SKIP, skip }),
+    sendError: (status) => dispatch({ type: ERROR, status})
   });
   
   export default connect(mapStateToProps, mapDispatchToProps)(Songs);

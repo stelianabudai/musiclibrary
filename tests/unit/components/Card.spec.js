@@ -23,14 +23,13 @@ const container = shallow(
            addgenreId={addgenreId} resetPage={resetPage}/>)
 
   it('should Card have proper title/description', () => {
-    expect(container.contains('Jazz')).toEqual(true);
     const cardTitle = container.find('[data-testid="title"]')
     expect(cardTitle.contains('Jazz')).toEqual(true);
     const buttonText = container.find('[data-testid="button"]').render().text()
     expect(buttonText).toEqual('View 6 Songs')
   })
 
-  it('should save genre Id in reduz store on click', () => {
+  it('should save genre Id in redux on store on click', () => {
     const buttonText = container.find('[data-testid="button"]')
     buttonText.simulate('click')
     expect(addgenreId.calledOnce).toBe.true;   
