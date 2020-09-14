@@ -8,6 +8,7 @@
   "scripts": {
     "clear": "rimraf ./build",
     "prod": "export NODE_ENV=production && npm run clear && webpack && node ./build/server.js",
+    "db": "./infra/run.sh",
     "start": "npm run clear && webpack && node ./build/server.js",
     "lint": "eslint 'src/**/*.js?(x)'",
     "test": "jest"
