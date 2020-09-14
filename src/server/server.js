@@ -25,7 +25,7 @@ app.use('/songs', songRouter)
 app.use('/genre', genreRouter)
 
 
-app.get('/', async (req, res, next) => {
+app.get('/home', async (req, res, next) => {
   const scripts = ['vendor.js', 'client.js']
   try{
       const genres = await getGenres()
@@ -67,4 +67,4 @@ app.use(function(req, res){
   res.send("Page not found!!!!");
 });
 
-app.listen(3003, () => console.log('Listening on localhost:3002'))
+app.listen(3003, () => console.log('Listening on localhost:3003'))

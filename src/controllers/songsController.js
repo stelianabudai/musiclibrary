@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from 'axios'
 
 const fetchSongs= (limit, skip, genreId, dispatch) => {
     axios.get(`/songs?limit=${limit}&skip=${skip}&genreId=${genreId}`)
@@ -7,7 +7,7 @@ const fetchSongs= (limit, skip, genreId, dispatch) => {
     })
     .catch((error) => {
         console.log(error)
-    });    
+    })   
 }
 
 const songSave = (name, desc, artist, genreId, dispatch, history) => {
@@ -18,7 +18,7 @@ const songSave = (name, desc, artist, genreId, dispatch, history) => {
             history.push('/songs');
         }).catch((error) => {
             console.log(error)
-        });
+        })
 }
 
 
