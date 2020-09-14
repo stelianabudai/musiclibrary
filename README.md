@@ -26,3 +26,9 @@ Then open the page [http://localhost:3003/home](http://localhost:3003/home) in y
 --> work in progress in branch
 
 https://github.com/stelianabudai/musiclibrary/pull/16 
+
+
+## Running tests
+
+npm run-script test
+
