@@ -9,7 +9,7 @@ import AddSong from './AddSong'
 const App = () => (
   <div>
     <ul>
-      <li><Link to="/">Home</Link></li>
+      <li><Link to="/home">Home</Link></li>
       <li><Link to="/addGenre">Add Genre</Link></li>
       <li><Link to="/addSong">Add Song</Link></li>
     </ul>
@@ -20,7 +20,7 @@ const App = () => (
       <Route path="/addGenre" component={AddGenre} />
       <Route path="/songs" component={Songs} />
       <Route path="/addSong" component={AddSong} />
-      <Route path="/" component={Home} />
+      <Route path="/home" component={Home} />
     </Switch>
   </div>
 );

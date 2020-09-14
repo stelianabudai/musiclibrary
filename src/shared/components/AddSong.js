@@ -10,7 +10,7 @@ import {
 } from 'styled-form-component';
 
 
-const AddSong = ({addSong, genres}) => {
+const AddSong = ({addSong, genres, dispatchError}) => {
   const history = useHistory();
   const [name, setName] = useState("")
   const [desc, setDesc] = useState("")
@@ -25,7 +25,7 @@ return(
           if (!name.trim() || !desc.trim()) {
             return
           }
-          songSave(name, desc, artist, genreId, addSong, history)     
+          songSave(name, desc, artist, genreId, addSong, history, dispatchError)     
         }}
       >
         <FormGroup>     
@@ -65,6 +65,7 @@ const mapStateToProps = ({ genres}) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   addSong: (name, description, genreId) => dispatch({ type: ADD_SONG, name, description, genreId }),
+  dispatchError: (error) => dispatch({error})
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddSong);

@@ -4,7 +4,9 @@ import {createSong, getSongsPaginated} from '../services/songsService'
 songRouter.post('/', async(req, resp) => {
     try{
       await createSong({...req.body})
-    resp.sendStatus(200)
+    //resp.sendStatus(200)
+    return res.status(500).send('An error has occured')  
+
     }catch(error){
         //todo add logger 
         console.log(error)

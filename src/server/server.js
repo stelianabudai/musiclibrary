@@ -25,7 +25,7 @@ app.use('/songs', songRouter)
 app.use('/genre', genreRouter)
 
 
-app.get('/', async (req, res, next) => {
+app.get('/home', async (req, res, next) => {
   const scripts = ['vendor.js', 'client.js']
   try{
       const genres = await getGenres()

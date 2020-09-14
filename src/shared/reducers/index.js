@@ -1,4 +1,4 @@
-import {ADD_GENRE, FETCH_SONGS, RESET_SKIP, CHANGE_SKIP, CHANGE_GENRE_ID, ADD_SONG} from './actions'
+import {ADD_GENRE, FETCH_SONGS, RESET_SKIP, CHANGE_SKIP, CHANGE_GENRE_ID, ADD_SONG, ERROR} from './actions'
 
 const calculateSkip= (count, limit) => {
     if(count < limit){
@@ -34,6 +34,8 @@ const reducer = (state, action) => {
                                       {_id:action.genreId, count: group? group.count+1 : 1}],
                 skip: calculateSkip(group?group.count+1:0, state.limit)
               }
+      case ERROR:
+        error: true
     default:
       return { ...state }
   }

@@ -9,7 +9,7 @@ import {
   FormGroup,
 } from 'styled-form-component';
 
-const AddGenre = ({addType}) => {
+const AddGenre = ({addType, dispatchError}) => {
   const [name, setName] = useState("")
   const [desc, setDesc] = useState("")
   const history = useHistory();
@@ -22,7 +22,7 @@ return(
           if (!name.trim() || !desc.trim()) {
             return
           }
-          typesSave(name, desc, addType, history)  
+          typesSave(name, desc, addType, history, dispatchError)  
         }}
       >
       <FormGroup>
@@ -45,6 +45,7 @@ const mapStateToProps = ({  }) => ({
 });
 const mapDispatchToProps = (dispatch) => ({
   addType: (name, description, genreId) => dispatch({ type: ADD_GENRE, name, description, genreId}),
+  dispatchError: (error) => dispatch({error})
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddGenre);
